@@ -13,7 +13,9 @@ import { Route as ZodiacRouteImport } from './routes/zodiac'
 import { Route as FiveElementsRouteImport } from './routes/five-elements'
 import { Route as DailyFortuneRouteImport } from './routes/daily-fortune'
 import { Route as CompatibilityRouteImport } from './routes/compatibility'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const ZodiacRoute = ZodiacRouteImport.update({
   id: '/zodiac',
@@ -35,55 +37,83 @@ const CompatibilityRoute = CompatibilityRouteImport.update({
   path: '/compatibility',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRouteWithChildren
   '/compatibility': typeof CompatibilityRoute
   '/daily-fortune': typeof DailyFortuneRoute
   '/five-elements': typeof FiveElementsRoute
   '/zodiac': typeof ZodiacRoute
+  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRouteWithChildren
   '/compatibility': typeof CompatibilityRoute
   '/daily-fortune': typeof DailyFortuneRoute
   '/five-elements': typeof FiveElementsRoute
   '/zodiac': typeof ZodiacRoute
+  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blog': typeof BlogRouteWithChildren
   '/compatibility': typeof CompatibilityRoute
   '/daily-fortune': typeof DailyFortuneRoute
   '/five-elements': typeof FiveElementsRoute
   '/zodiac': typeof ZodiacRoute
+  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/blog'
     | '/compatibility'
     | '/daily-fortune'
     | '/five-elements'
     | '/zodiac'
+    | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/compatibility' | '/daily-fortune' | '/five-elements' | '/zodiac'
+  to:
+    | '/'
+    | '/blog'
+    | '/compatibility'
+    | '/daily-fortune'
+    | '/five-elements'
+    | '/zodiac'
+    | '/blog/$slug'
   id:
     | '__root__'
     | '/'
+    | '/blog'
     | '/compatibility'
     | '/daily-fortune'
     | '/five-elements'
     | '/zodiac'
+    | '/blog/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlogRoute: typeof BlogRouteWithChildren
   CompatibilityRoute: typeof CompatibilityRoute
   DailyFortuneRoute: typeof DailyFortuneRoute
   FiveElementsRoute: typeof FiveElementsRoute
@@ -120,6 +150,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompatibilityRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -127,11 +164,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
 
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlogRoute: BlogRouteWithChildren,
   CompatibilityRoute: CompatibilityRoute,
   DailyFortuneRoute: DailyFortuneRoute,
   FiveElementsRoute: FiveElementsRoute,
