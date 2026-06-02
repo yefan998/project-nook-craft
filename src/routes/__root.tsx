@@ -94,6 +94,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Sìshén" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Sishen" },
+      { name: "twitter:title", content: "Chinese Five Elements & Destiny Analysis | Sìshén" },
+      { name: "description", content: "Discover your Chinese Zodiac, Five Elements, lucky colors, love compatibility, and daily fortune with personalized destiny analysis." },
+      { property: "og:description", content: "Discover your Chinese Zodiac, Five Elements, lucky colors, love compatibility, and daily fortune with personalized destiny analysis." },
+      { name: "twitter:description", content: "Discover your Chinese Zodiac, Five Elements, lucky colors, love compatibility, and daily fortune with personalized destiny analysis." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/385ef51c-b75b-45a9-878d-172b531688f9/id-preview-aad9d7e6--e62b36e6-e62a-4aff-b74b-0055a7e4efbc.lovable.app-1780437270955.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/385ef51c-b75b-45a9-878d-172b531688f9/id-preview-aad9d7e6--e62b36e6-e62a-4aff-b74b-0055a7e4efbc.lovable.app-1780437270955.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
