@@ -10,13 +10,13 @@ import cosmicHero from "@/assets/cosmic-hero.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Chinese Five Elements & Destiny Analysis | Sìshén" },
+      { title: "Chinese Five Elements Calculator | Wu Xing Destiny Analysis" },
       {
         name: "description",
         content:
           "Enter your birth date to reveal your Chinese zodiac, Five Elements profile, lucky colors and numbers, daily fortune and love compatibility.",
       },
-      { property: "og:title", content: "Chinese Five Elements & Destiny Analysis | Sìshén" },
+      { property: "og:title", content: "Chinese Five Elements Calculator | Wu Xing Destiny Analysis" },
       {
         property: "og:description",
         content:
