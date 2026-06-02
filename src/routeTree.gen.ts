@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ZodiacRouteImport } from './routes/zodiac'
 import { Route as FiveElementsRouteImport } from './routes/five-elements'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ZodiacRoute = ZodiacRouteImport.update({
+  id: '/zodiac',
+  path: '/zodiac',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FiveElementsRoute = FiveElementsRouteImport.update({
   id: '/five-elements',
   path: '/five-elements',
@@ -26,31 +32,42 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/five-elements': typeof FiveElementsRoute
+  '/zodiac': typeof ZodiacRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/five-elements': typeof FiveElementsRoute
+  '/zodiac': typeof ZodiacRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/five-elements': typeof FiveElementsRoute
+  '/zodiac': typeof ZodiacRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/five-elements'
+  fullPaths: '/' | '/five-elements' | '/zodiac'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/five-elements'
-  id: '__root__' | '/' | '/five-elements'
+  to: '/' | '/five-elements' | '/zodiac'
+  id: '__root__' | '/' | '/five-elements' | '/zodiac'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   FiveElementsRoute: typeof FiveElementsRoute
+  ZodiacRoute: typeof ZodiacRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/zodiac': {
+      id: '/zodiac'
+      path: '/zodiac'
+      fullPath: '/zodiac'
+      preLoaderRoute: typeof ZodiacRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/five-elements': {
       id: '/five-elements'
       path: '/five-elements'
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   FiveElementsRoute: FiveElementsRoute,
+  ZodiacRoute: ZodiacRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
