@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ZodiacRouteImport } from './routes/zodiac'
 import { Route as FiveElementsRouteImport } from './routes/five-elements'
+import { Route as DailyFortuneRouteImport } from './routes/daily-fortune'
+import { Route as CompatibilityRouteImport } from './routes/compatibility'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ZodiacRoute = ZodiacRouteImport.update({
@@ -23,6 +25,16 @@ const FiveElementsRoute = FiveElementsRouteImport.update({
   path: '/five-elements',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DailyFortuneRoute = DailyFortuneRouteImport.update({
+  id: '/daily-fortune',
+  path: '/daily-fortune',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompatibilityRoute = CompatibilityRouteImport.update({
+  id: '/compatibility',
+  path: '/compatibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,30 +43,49 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/compatibility': typeof CompatibilityRoute
+  '/daily-fortune': typeof DailyFortuneRoute
   '/five-elements': typeof FiveElementsRoute
   '/zodiac': typeof ZodiacRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/compatibility': typeof CompatibilityRoute
+  '/daily-fortune': typeof DailyFortuneRoute
   '/five-elements': typeof FiveElementsRoute
   '/zodiac': typeof ZodiacRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/compatibility': typeof CompatibilityRoute
+  '/daily-fortune': typeof DailyFortuneRoute
   '/five-elements': typeof FiveElementsRoute
   '/zodiac': typeof ZodiacRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/five-elements' | '/zodiac'
+  fullPaths:
+    | '/'
+    | '/compatibility'
+    | '/daily-fortune'
+    | '/five-elements'
+    | '/zodiac'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/five-elements' | '/zodiac'
-  id: '__root__' | '/' | '/five-elements' | '/zodiac'
+  to: '/' | '/compatibility' | '/daily-fortune' | '/five-elements' | '/zodiac'
+  id:
+    | '__root__'
+    | '/'
+    | '/compatibility'
+    | '/daily-fortune'
+    | '/five-elements'
+    | '/zodiac'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CompatibilityRoute: typeof CompatibilityRoute
+  DailyFortuneRoute: typeof DailyFortuneRoute
   FiveElementsRoute: typeof FiveElementsRoute
   ZodiacRoute: typeof ZodiacRoute
 }
@@ -75,6 +106,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FiveElementsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/daily-fortune': {
+      id: '/daily-fortune'
+      path: '/daily-fortune'
+      fullPath: '/daily-fortune'
+      preLoaderRoute: typeof DailyFortuneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compatibility': {
+      id: '/compatibility'
+      path: '/compatibility'
+      fullPath: '/compatibility'
+      preLoaderRoute: typeof CompatibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +132,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CompatibilityRoute: CompatibilityRoute,
+  DailyFortuneRoute: DailyFortuneRoute,
   FiveElementsRoute: FiveElementsRoute,
   ZodiacRoute: ZodiacRoute,
 }
