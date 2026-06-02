@@ -62,7 +62,7 @@ function BlogPostPage() {
         {post.title}
       </h1>
       <div className="mt-10 space-y-6">
-        {post.body.map((para, i) => (
+        {post.body.map((para: string, i: number) => (
           <p key={i} className="text-lg leading-relaxed text-muted-foreground">
             {para}
           </p>
