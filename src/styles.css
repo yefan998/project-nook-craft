@@ -183,3 +183,75 @@
   text-transform: uppercase;
   letter-spacing: 0.2em;
 }
+
+/* ===== Decorative atmosphere animations (visual only) ===== */
+.decor-spin {
+  animation: decor-spin 120s linear infinite;
+}
+.decor-glow {
+  animation: decor-glow 8s ease-in-out infinite;
+}
+.decor-float {
+  animation: decor-float 12s ease-in-out infinite;
+}
+.decor-particle {
+  animation-name: decor-rise;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  filter: blur(0.5px);
+}
+
+@keyframes decor-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes decor-glow {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes decor-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes decor-rise {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  85% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-70px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decor-spin,
+  .decor-glow,
+  .decor-float,
+  .decor-particle {
+    animation: none;
+  }
+}
+
