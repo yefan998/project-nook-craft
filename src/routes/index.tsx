@@ -14,13 +14,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Enter your birth date to reveal your Chinese zodiac, Five Elements profile, lucky colors and numbers, daily fortune and love compatibility.",
+          "Discover your Chinese Zodiac, Five Elements, lucky colors, compatibility, and daily fortune through personalized destiny analysis based on ancient Chinese wisdom.",
       },
       { property: "og:title", content: "Chinese Five Elements Calculator | Wu Xing Destiny Analysis" },
       {
         property: "og:description",
         content:
-          "Modern destiny analysis rooted in ancient Wu Xing wisdom. Map your character, career and cosmic resonance.",
+          "Discover your Chinese Zodiac, Five Elements, lucky colors, compatibility, and daily fortune through personalized destiny analysis based on ancient Chinese wisdom.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -64,8 +64,8 @@ function Index() {
                 The blueprint of your <span className="text-primary">inner heavens</span>.
               </h1>
               <p className="mt-8 max-w-[45ch] text-pretty text-lg leading-relaxed text-muted-foreground">
-                Precision destiny analysis rooted in the ancient Wu Xing cycles. Map your character,
-                career and cosmic resonance through the date of your arrival.
+                Discover your Chinese Zodiac, Five Elements, lucky colors, compatibility, and daily
+                fortune through personalized destiny analysis based on ancient Chinese wisdom.
               </p>
 
               <div className="mt-12 flex flex-col gap-4 sm:flex-row">
