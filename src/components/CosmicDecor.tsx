@@ -117,9 +117,9 @@ export function CosmicDecor() {
       {/* Yin-Yang watermark, very low opacity, slow spin */}
       <YinYangMark className="absolute left-1/2 top-1/2 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 text-accent/[0.05] decor-spin md:h-[55rem] md:w-[55rem]" />
 
-      {/* Bagua decorative corners (gold) */}
-      <BaguaMark className="absolute -left-10 -top-10 h-40 w-40 text-accent/15 md:h-56 md:w-56" />
-      <BaguaMark className="absolute -bottom-10 -right-10 h-40 w-40 text-accent/15 md:h-56 md:w-56" />
+      {/* Bagua decorative corners (gold) — responsive, never clipped */}
+      <BaguaMark className="absolute left-3 top-3 h-20 w-20 text-accent/10 sm:h-24 sm:w-24 md:left-5 md:top-5 md:h-28 md:w-28 lg:h-36 lg:w-36" />
+      <BaguaMark className="absolute bottom-3 right-3 h-20 w-20 text-accent/10 sm:h-24 sm:w-24 md:bottom-5 md:right-5 md:h-28 md:w-28 lg:h-36 lg:w-36" />
 
       {/* Five Elements glyphs scattered subtly */}
       <div className="font-display absolute inset-0">
