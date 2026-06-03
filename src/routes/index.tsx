@@ -14,13 +14,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Enter your birth date to reveal your Chinese zodiac, Five Elements profile, lucky colors and numbers, daily fortune and love compatibility.",
+          "Discover your Chinese Zodiac, Five Elements, lucky colors, compatibility, and daily fortune through personalized destiny analysis based on ancient Chinese wisdom.",
       },
       { property: "og:title", content: "Chinese Five Elements Calculator | Wu Xing Destiny Analysis" },
       {
         property: "og:description",
         content:
-          "Modern destiny analysis rooted in ancient Wu Xing wisdom. Map your character, career and cosmic resonance.",
+          "Discover your Chinese Zodiac, Five Elements, lucky colors, compatibility, and daily fortune through personalized destiny analysis based on ancient Chinese wisdom.",
       },
       { property: "og:url", content: "/" },
     ],
