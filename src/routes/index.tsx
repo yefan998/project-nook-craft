@@ -192,6 +192,32 @@ function Index() {
           </div>
         </div>
       </section>
+      {/* Feedback */}
+      <section className="border-t border-border py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="display-italic mb-4 text-4xl text-foreground">🌟 Help Us Improve</h2>
+          <p className="mb-12 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            We are constantly improving our astrology and compatibility tools.
+            <br />
+            Share your ideas, suggestions, or questions below.
+          </p>
+          <div className="w-full max-w-2xl overflow-hidden rounded-sm border border-border">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSfIOejghk7e5e0STCslWQuIpb68WgrcFphJQZ7bLZdXZpD-gQ/viewform?embedded=true"
+              width="640"
+              height="1222"
+              frameBorder="0"
+              marginHeight={0}
+              marginWidth={0}
+              title="Feedback Form"
+              className="w-full"
+              style={{ maxWidth: "640px", border: "none" }}
+            >
+              Loading…
+            </iframe>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
