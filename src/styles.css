@@ -153,6 +153,10 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -182,6 +186,18 @@
   font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.2em;
+}
+
+/* Glassmorphism surface */
+@utility glass {
+  background: linear-gradient(
+    135deg,
+    hsl(0 0% 100% / 0.06) 0%,
+    hsl(0 0% 100% / 0.02) 100%
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid hsl(0 0% 100% / 0.1);
 }
 
 /* ===== Decorative atmosphere animations (visual only) ===== */
