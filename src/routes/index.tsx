@@ -278,12 +278,7 @@ function FiveElementsSection() {
                   <Link
                     to="/five-elements"
                     className="glass relative flex h-full flex-col items-center overflow-hidden rounded-2xl p-6 text-center transition-shadow duration-300"
-                    style={
-                      {
-                        // glow on hover via box-shadow
-                        boxShadow: `0 0 0 1px ${meta.color}22`,
-                      } as React.CSSProperties
-                    }
+                    style={{ boxShadow: `0 0 0 1px ${meta.color}22` }}
                   >
                     <div
                       className="pointer-events-none absolute -inset-px opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-40"
