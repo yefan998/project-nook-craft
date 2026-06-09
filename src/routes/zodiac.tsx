@@ -4,26 +4,25 @@ import { Sparkles } from "lucide-react";
 
 import { DateField } from "@/components/DateField";
 import { PageHeader } from "@/components/PageHeader";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedContent } from "@/components/RelatedContent";
 import { getReading, parseDateInput, formatLongDate, ZODIACS } from "@/lib/destiny";
+import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+
+const CRUMBS = [
+  { name: "Home", path: "/" },
+  { name: "Chinese Zodiac Calculator", path: "/zodiac" },
+];
 
 export const Route = createFileRoute("/zodiac")({
   head: () => ({
-    meta: [
-      { title: "Chinese Zodiac Calculator | Sìshén" },
-      {
-        name: "description",
-        content:
-          "Find your Chinese zodiac animal from your birth date and read your personality, traits, strengths, weaknesses, best matches and lucky colors and numbers.",
-      },
-      { property: "og:title", content: "Chinese Zodiac Calculator | Sìshén" },
-      {
-        property: "og:description",
-        content:
-          "Discover your Chinese zodiac animal, personality traits, strengths and weaknesses.",
-      },
-      { property: "og:url", content: "/zodiac" },
-    ],
-    links: [{ rel: "canonical", href: "/zodiac" }],
+    meta: pageMeta({
+      title: "Chinese Zodiac Calculator | Sìshén",
+      description:
+        "Find your Chinese zodiac animal from your birth date and read your personality analysis, strengths, weaknesses, best matches, career insights and lucky colors, numbers and directions.",
+      path: "/zodiac",
+    }),
+    links: canonicalLink("/zodiac"),
     scripts: [
       {
         type: "application/ld+json",
@@ -36,10 +35,12 @@ export const Route = createFileRoute("/zodiac")({
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         }),
       },
+      breadcrumbJsonLd(CRUMBS),
     ],
   }),
   component: ZodiacPage,
 });
+
 
 function ZodiacPage() {
   const [dob, setDob] = useState("");
