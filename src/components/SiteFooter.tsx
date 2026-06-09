@@ -7,7 +7,12 @@ const FOOTER_LINKS = [
   { to: "/daily-fortune", label: "Daily Fortune" },
   { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
+  { to: "/faq", label: "FAQ" },
+  { to: "/contact", label: "Contact" },
+  { to: "/privacy", label: "Privacy" },
+  { to: "/terms", label: "Terms" },
 ] as const;
+
 
 export function SiteFooter() {
   return (
