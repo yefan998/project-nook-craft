@@ -116,7 +116,10 @@ function BlogPostPage() {
             ))}
         </div>
       </div>
+
+      <RelatedContent heading="Try the tools" />
     </article>
+
   );
 }
 
