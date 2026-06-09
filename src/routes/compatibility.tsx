@@ -110,7 +110,17 @@ function CompatibilityPage() {
               ))}
             </ul>
           </div>
+
+          <RelatedContent
+            excludeTool="/compatibility"
+            articleSlugs={[
+              "chinese-zodiac-compatibility-guide",
+              "what-is-my-chinese-zodiac",
+              "chinese-astrology-for-beginners",
+            ]}
+          />
         </div>
+
       ) : (
         <p className="mt-16 text-center text-sm text-muted-foreground">
           Enter both birth dates to reveal your compatibility.
