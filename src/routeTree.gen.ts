@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ZodiacRouteImport } from './routes/zodiac'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as FiveElementsRouteImport } from './routes/five-elements'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DailyFortuneRouteImport } from './routes/daily-fortune'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompatibilityRouteImport } from './routes/compatibility'
@@ -33,6 +34,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const FiveElementsRoute = FiveElementsRouteImport.update({
   id: '/five-elements',
   path: '/five-elements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DailyFortuneRoute = DailyFortuneRouteImport.update({
@@ -78,6 +84,7 @@ export interface FileRoutesByFullPath {
   '/compatibility': typeof CompatibilityRoute
   '/contact': typeof ContactRoute
   '/daily-fortune': typeof DailyFortuneRoute
+  '/faq': typeof FaqRoute
   '/five-elements': typeof FiveElementsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/zodiac': typeof ZodiacRoute
@@ -90,6 +97,7 @@ export interface FileRoutesByTo {
   '/compatibility': typeof CompatibilityRoute
   '/contact': typeof ContactRoute
   '/daily-fortune': typeof DailyFortuneRoute
+  '/faq': typeof FaqRoute
   '/five-elements': typeof FiveElementsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/zodiac': typeof ZodiacRoute
@@ -103,6 +111,7 @@ export interface FileRoutesById {
   '/compatibility': typeof CompatibilityRoute
   '/contact': typeof ContactRoute
   '/daily-fortune': typeof DailyFortuneRoute
+  '/faq': typeof FaqRoute
   '/five-elements': typeof FiveElementsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/zodiac': typeof ZodiacRoute
@@ -117,6 +126,7 @@ export interface FileRouteTypes {
     | '/compatibility'
     | '/contact'
     | '/daily-fortune'
+    | '/faq'
     | '/five-elements'
     | '/sitemap.xml'
     | '/zodiac'
@@ -129,6 +139,7 @@ export interface FileRouteTypes {
     | '/compatibility'
     | '/contact'
     | '/daily-fortune'
+    | '/faq'
     | '/five-elements'
     | '/sitemap.xml'
     | '/zodiac'
@@ -141,6 +152,7 @@ export interface FileRouteTypes {
     | '/compatibility'
     | '/contact'
     | '/daily-fortune'
+    | '/faq'
     | '/five-elements'
     | '/sitemap.xml'
     | '/zodiac'
@@ -154,6 +166,7 @@ export interface RootRouteChildren {
   CompatibilityRoute: typeof CompatibilityRoute
   ContactRoute: typeof ContactRoute
   DailyFortuneRoute: typeof DailyFortuneRoute
+  FaqRoute: typeof FaqRoute
   FiveElementsRoute: typeof FiveElementsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ZodiacRoute: typeof ZodiacRoute
@@ -180,6 +193,13 @@ declare module '@tanstack/react-router' {
       path: '/five-elements'
       fullPath: '/five-elements'
       preLoaderRoute: typeof FiveElementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/daily-fortune': {
@@ -251,6 +271,7 @@ const rootRouteChildren: RootRouteChildren = {
   CompatibilityRoute: CompatibilityRoute,
   ContactRoute: ContactRoute,
   DailyFortuneRoute: DailyFortuneRoute,
+  FaqRoute: FaqRoute,
   FiveElementsRoute: FiveElementsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ZodiacRoute: ZodiacRoute,
