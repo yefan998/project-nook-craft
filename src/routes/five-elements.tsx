@@ -159,7 +159,16 @@ function FiveElementsPage() {
           </div>
 
           {/* Lucky + zodiac */}
-          <div className="grid gap-px bg-border md:grid-cols-3">
+          <div className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+            <div className="bg-background p-8">
+              <h3 className="label-mono mb-5 text-[11px] text-accent">Lucky Direction</h3>
+              <p className="display-italic text-3xl text-foreground">
+                {reading.element.luckyDirection}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Favour this direction for desks, beds and important decisions.
+              </p>
+            </div>
             <div className="bg-background p-8">
               <h3 className="label-mono mb-5 text-[11px] text-accent">Lucky Colors</h3>
               <ul className="space-y-2">
