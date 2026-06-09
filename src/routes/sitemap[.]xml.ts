@@ -23,12 +23,17 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/daily-fortune", changefreq: "daily", priority: "0.8" },
           { path: "/blog", changefreq: "weekly", priority: "0.7" },
           { path: "/about", changefreq: "yearly", priority: "0.5" },
+          { path: "/faq", changefreq: "monthly", priority: "0.6" },
+          { path: "/contact", changefreq: "yearly", priority: "0.4" },
+          { path: "/privacy", changefreq: "yearly", priority: "0.3" },
+          { path: "/terms", changefreq: "yearly", priority: "0.3" },
           ...BLOG_POSTS.map((p) => ({
             path: `/blog/${p.slug}`,
             changefreq: "monthly" as const,
             priority: "0.6",
           })),
         ];
+
 
         const urls = entries.map((e) =>
           [
