@@ -28,6 +28,8 @@ export const Route = createFileRoute("/blog")({
 function BlogPage() {
   return (
     <div className="px-6 py-20 md:py-28">
+      <Breadcrumbs items={CRUMBS} />
+
       <PageHeader
         eyebrow="The Journal"
         title={
