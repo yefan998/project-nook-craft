@@ -3,29 +3,44 @@ import { useMemo, useState } from "react";
 
 import { DateField } from "@/components/DateField";
 import { PageHeader } from "@/components/PageHeader";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedContent } from "@/components/RelatedContent";
 import { ScoreMeter } from "@/components/ScoreMeter";
 import { getDailyFortune, getReading, parseDateInput, formatLongDate } from "@/lib/destiny";
+import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+
+const CRUMBS = [
+  { name: "Home", path: "/" },
+  { name: "Daily Fortune", path: "/daily-fortune" },
+];
 
 export const Route = createFileRoute("/daily-fortune")({
   head: () => ({
-    meta: [
-      { title: "Daily Fortune Reading | Sìshén" },
+    meta: pageMeta({
+      title: "Daily Fortune Reading | Sìshén",
+      description:
+        "Your daily Chinese fortune for love, career, wealth and health — a personalized forecast based on your birth date and today's energy, with lucky colors, numbers and directions.",
+      path: "/daily-fortune",
+    }),
+    links: canonicalLink("/daily-fortune"),
+    scripts: [
       {
-        name: "description",
-        content:
-          "Your daily Chinese fortune for love, career, wealth and health — a personalized forecast based on your birth date and today's energy.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "Daily Fortune Reading",
+          applicationCategory: "LifestyleApplication",
+          operatingSystem: "Web",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        }),
       },
-      { property: "og:title", content: "Daily Fortune Reading | Sìshén" },
-      {
-        property: "og:description",
-        content: "Today's love, career, wealth and health forecast based on your birth date.",
-      },
-      { property: "og:url", content: "/daily-fortune" },
+      breadcrumbJsonLd(CRUMBS),
     ],
-    links: [{ rel: "canonical", href: "/daily-fortune" }],
   }),
   component: DailyFortunePage,
 });
+
 
 function DailyFortunePage() {
   const [dob, setDob] = useState("");
