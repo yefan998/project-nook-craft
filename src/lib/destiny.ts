@@ -19,6 +19,7 @@ export interface ElementProfile {
   challenges: string[];
   luckyColors: string[];
   luckyNumbers: number[];
+  luckyDirection: string; // traditional Feng Shui direction
   generates: ElementKey; // the element this one produces
   controls: ElementKey; // the element this one overcomes
 }
