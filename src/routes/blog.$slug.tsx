@@ -66,6 +66,14 @@ function BlogPostPage() {
   const post = Route.useLoaderData();
   return (
     <article className="mx-auto max-w-3xl px-6 py-20 md:py-28">
+      <Breadcrumbs
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ]}
+      />
+
       <Link
         to="/blog"
         className="label-mono inline-flex items-center gap-2 text-[10px] text-accent hover:gap-3"
