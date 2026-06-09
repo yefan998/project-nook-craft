@@ -83,7 +83,7 @@ function DailyFortunePage() {
               <ScoreMeter key={f.key} label={f.label} score={f.score} note={f.note} />
             ))}
           </div>
-          <div className="grid gap-px bg-border sm:grid-cols-2">
+          <div className="grid gap-px bg-border sm:grid-cols-3">
             <div className="bg-background p-6">
               <h3 className="label-mono mb-3 text-[11px] text-accent">Lucky Colors Today</h3>
               <p className="text-foreground">{data.reading.luckyColors.slice(0, 3).join(" · ")}</p>
@@ -101,8 +101,24 @@ function DailyFortunePage() {
                 ))}
               </div>
             </div>
+            <div className="bg-background p-6">
+              <h3 className="label-mono mb-3 text-[11px] text-accent">Lucky Direction Today</h3>
+              <p className="display-italic text-2xl text-foreground">
+                {data.reading.element.luckyDirection}
+              </p>
+            </div>
           </div>
+
+          <RelatedContent
+            excludeTool="/daily-fortune"
+            articleSlugs={[
+              "lucky-colors-by-element",
+              "chinese-astrology-for-beginners",
+              "five-elements-personality-traits",
+            ]}
+          />
         </div>
+
       ) : (
         <p className="mt-16 text-center text-sm text-muted-foreground">
           Enter your birth date to reveal today's forecast.
