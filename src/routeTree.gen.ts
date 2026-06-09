@@ -13,6 +13,7 @@ import { Route as ZodiacRouteImport } from './routes/zodiac'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as FiveElementsRouteImport } from './routes/five-elements'
 import { Route as DailyFortuneRouteImport } from './routes/daily-fortune'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompatibilityRouteImport } from './routes/compatibility'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
@@ -37,6 +38,11 @@ const FiveElementsRoute = FiveElementsRouteImport.update({
 const DailyFortuneRoute = DailyFortuneRouteImport.update({
   id: '/daily-fortune',
   path: '/daily-fortune',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompatibilityRoute = CompatibilityRouteImport.update({
@@ -70,6 +76,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/compatibility': typeof CompatibilityRoute
+  '/contact': typeof ContactRoute
   '/daily-fortune': typeof DailyFortuneRoute
   '/five-elements': typeof FiveElementsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/compatibility': typeof CompatibilityRoute
+  '/contact': typeof ContactRoute
   '/daily-fortune': typeof DailyFortuneRoute
   '/five-elements': typeof FiveElementsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -93,6 +101,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/compatibility': typeof CompatibilityRoute
+  '/contact': typeof ContactRoute
   '/daily-fortune': typeof DailyFortuneRoute
   '/five-elements': typeof FiveElementsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/compatibility'
+    | '/contact'
     | '/daily-fortune'
     | '/five-elements'
     | '/sitemap.xml'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/compatibility'
+    | '/contact'
     | '/daily-fortune'
     | '/five-elements'
     | '/sitemap.xml'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/compatibility'
+    | '/contact'
     | '/daily-fortune'
     | '/five-elements'
     | '/sitemap.xml'
@@ -140,6 +152,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRouteWithChildren
   CompatibilityRoute: typeof CompatibilityRoute
+  ContactRoute: typeof ContactRoute
   DailyFortuneRoute: typeof DailyFortuneRoute
   FiveElementsRoute: typeof FiveElementsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -174,6 +187,13 @@ declare module '@tanstack/react-router' {
       path: '/daily-fortune'
       fullPath: '/daily-fortune'
       preLoaderRoute: typeof DailyFortuneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compatibility': {
@@ -229,6 +249,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BlogRoute: BlogRouteWithChildren,
   CompatibilityRoute: CompatibilityRoute,
+  ContactRoute: ContactRoute,
   DailyFortuneRoute: DailyFortuneRoute,
   FiveElementsRoute: FiveElementsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
@@ -237,3 +258,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
