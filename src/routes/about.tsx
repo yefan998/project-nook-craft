@@ -1,27 +1,28 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { PageHeader } from "@/components/PageHeader";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+
+const CRUMBS = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+];
 
 export const Route = createFileRoute("/about")({
   head: () => ({
-    meta: [
-      { title: "About — Ancient Wisdom, Modern Clarity | Sìshén" },
-      {
-        name: "description",
-        content:
-          "Sìshén translates traditional Chinese metaphysics — the Five Elements and the zodiac — into clear, modern destiny analysis for self-understanding.",
-      },
-      { property: "og:title", content: "About | Sìshén" },
-      {
-        property: "og:description",
-        content: "How Sìshén translates ancient Chinese metaphysics into modern destiny analysis.",
-      },
-      { property: "og:url", content: "/about" },
-    ],
-    links: [{ rel: "canonical", href: "/about" }],
+    meta: pageMeta({
+      title: "About — Ancient Wisdom, Modern Clarity | Sìshén",
+      description:
+        "Sìshén translates traditional Chinese metaphysics — the Five Elements and the zodiac — into clear, modern destiny analysis for self-understanding.",
+      path: "/about",
+    }),
+    links: canonicalLink("/about"),
+    scripts: [breadcrumbJsonLd(CRUMBS)],
   }),
   component: AboutPage,
 });
+
 
 const PRINCIPLES = [
   {
