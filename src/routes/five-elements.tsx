@@ -202,11 +202,21 @@ function FiveElementsPage() {
               </p>
             </div>
           </div>
+
+          <RelatedContent
+            excludeTool="/five-elements"
+            articleSlugs={[
+              "five-elements-personality-traits",
+              "chinese-zodiac-elements-explained",
+              "lucky-colors-by-element",
+            ]}
+          />
         </div>
       ) : (
         <ElementReference />
       )}
     </div>
+
   );
 }
 
