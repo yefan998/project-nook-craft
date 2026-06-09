@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ZodiacRouteImport } from './routes/zodiac'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as FiveElementsRouteImport } from './routes/five-elements'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DailyFortuneRouteImport } from './routes/daily-fortune'
@@ -26,9 +28,19 @@ const ZodiacRoute = ZodiacRouteImport.update({
   path: '/zodiac',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FiveElementsRoute = FiveElementsRouteImport.update({
@@ -86,7 +98,9 @@ export interface FileRoutesByFullPath {
   '/daily-fortune': typeof DailyFortuneRoute
   '/faq': typeof FaqRoute
   '/five-elements': typeof FiveElementsRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/zodiac': typeof ZodiacRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
@@ -99,7 +113,9 @@ export interface FileRoutesByTo {
   '/daily-fortune': typeof DailyFortuneRoute
   '/faq': typeof FaqRoute
   '/five-elements': typeof FiveElementsRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/zodiac': typeof ZodiacRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
@@ -113,7 +129,9 @@ export interface FileRoutesById {
   '/daily-fortune': typeof DailyFortuneRoute
   '/faq': typeof FaqRoute
   '/five-elements': typeof FiveElementsRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/zodiac': typeof ZodiacRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
@@ -128,7 +146,9 @@ export interface FileRouteTypes {
     | '/daily-fortune'
     | '/faq'
     | '/five-elements'
+    | '/privacy'
     | '/sitemap.xml'
+    | '/terms'
     | '/zodiac'
     | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -141,7 +161,9 @@ export interface FileRouteTypes {
     | '/daily-fortune'
     | '/faq'
     | '/five-elements'
+    | '/privacy'
     | '/sitemap.xml'
+    | '/terms'
     | '/zodiac'
     | '/blog/$slug'
   id:
@@ -154,7 +176,9 @@ export interface FileRouteTypes {
     | '/daily-fortune'
     | '/faq'
     | '/five-elements'
+    | '/privacy'
     | '/sitemap.xml'
+    | '/terms'
     | '/zodiac'
     | '/blog/$slug'
   fileRoutesById: FileRoutesById
@@ -168,7 +192,9 @@ export interface RootRouteChildren {
   DailyFortuneRoute: typeof DailyFortuneRoute
   FaqRoute: typeof FaqRoute
   FiveElementsRoute: typeof FiveElementsRoute
+  PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
   ZodiacRoute: typeof ZodiacRoute
 }
 
@@ -181,11 +207,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ZodiacRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/five-elements': {
@@ -273,7 +313,9 @@ const rootRouteChildren: RootRouteChildren = {
   DailyFortuneRoute: DailyFortuneRoute,
   FaqRoute: FaqRoute,
   FiveElementsRoute: FiveElementsRoute,
+  PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
   ZodiacRoute: ZodiacRoute,
 }
 export const routeTree = rootRouteImport
