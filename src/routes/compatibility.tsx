@@ -4,28 +4,43 @@ import { Heart } from "lucide-react";
 
 import { DateField } from "@/components/DateField";
 import { PageHeader } from "@/components/PageHeader";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedContent } from "@/components/RelatedContent";
 import { getCompatibility, parseDateInput } from "@/lib/destiny";
+import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+
+const CRUMBS = [
+  { name: "Home", path: "/" },
+  { name: "Love Compatibility Calculator", path: "/compatibility" },
+];
 
 export const Route = createFileRoute("/compatibility")({
   head: () => ({
-    meta: [
-      { title: "Love Compatibility Calculator | Sìshén" },
+    meta: pageMeta({
+      title: "Love Compatibility Calculator | Sìshén",
+      description:
+        "Compare two birth dates to reveal your Chinese zodiac and Five Elements compatibility score, relationship summary, strengths and personalized advice.",
+      path: "/compatibility",
+    }),
+    links: canonicalLink("/compatibility"),
+    scripts: [
       {
-        name: "description",
-        content:
-          "Compare two birth dates to reveal your Chinese zodiac and Five Elements compatibility score, relationship summary and personalized advice.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "Love Compatibility Calculator",
+          applicationCategory: "LifestyleApplication",
+          operatingSystem: "Web",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        }),
       },
-      { property: "og:title", content: "Love Compatibility Calculator | Sìshén" },
-      {
-        property: "og:description",
-        content: "Discover your compatibility score and relationship advice from two birth dates.",
-      },
-      { property: "og:url", content: "/compatibility" },
+      breadcrumbJsonLd(CRUMBS),
     ],
-    links: [{ rel: "canonical", href: "/compatibility" }],
   }),
   component: CompatibilityPage,
 });
+
 
 function CompatibilityPage() {
   const [dobA, setDobA] = useState("");
