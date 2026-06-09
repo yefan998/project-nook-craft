@@ -1,32 +1,35 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { PageHeader } from "@/components/PageHeader";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BLOG_POSTS } from "@/lib/blog";
+import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+
+const CRUMBS = [
+  { name: "Home", path: "/" },
+  { name: "Blog", path: "/blog" },
+];
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
-    meta: [
-      { title: "Blog — Chinese Metaphysics & Destiny | Sìshén" },
-      {
-        name: "description",
-        content:
-          "Guides and reflections on Chinese metaphysics: the Five Elements, the zodiac, lucky colors and numbers, and how to align daily life with your nature.",
-      },
-      { property: "og:title", content: "Blog — Chinese Metaphysics & Destiny | Sìshén" },
-      {
-        property: "og:description",
-        content: "Guides and reflections on the Five Elements, the zodiac and Chinese destiny analysis.",
-      },
-      { property: "og:url", content: "/blog" },
-    ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    meta: pageMeta({
+      title: "Blog — Chinese Metaphysics & Destiny | Sìshén",
+      description:
+        "Guides and reflections on Chinese metaphysics: the Five Elements, the zodiac, lucky colors and numbers, compatibility and how to align daily life with your nature.",
+      path: "/blog",
+    }),
+    links: canonicalLink("/blog"),
+    scripts: [breadcrumbJsonLd(CRUMBS)],
   }),
   component: BlogPage,
 });
 
+
 function BlogPage() {
   return (
     <div className="px-6 py-20 md:py-28">
+      <Breadcrumbs items={CRUMBS} />
+
       <PageHeader
         eyebrow="The Journal"
         title={

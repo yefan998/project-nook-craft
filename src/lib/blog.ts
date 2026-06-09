@@ -54,6 +54,100 @@ export const BLOG_POSTS: BlogPost[] = [
       "Used thoughtfully, these tools sharpen intuition. They will not change your fate, but they can change your focus — and focus, in the end, shapes the path you walk.",
     ],
   },
+  {
+    slug: "what-is-my-chinese-zodiac",
+    title: "What Is My Chinese Zodiac Sign? A Simple Guide",
+    excerpt:
+      "Your birth year reveals one of twelve animals — here is how to find yours and what it says about your character.",
+    date: "2024-06-01",
+    readingTime: "5 min read",
+    category: "Zodiac",
+    body: [
+      "Your Chinese zodiac sign is determined by your birth year within a repeating twelve-year cycle: Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog and Pig. It is the most recognisable layer of Chinese astrology and the quickest way to begin understanding your nature.",
+      "To find your sign, simply enter your birth date into our Chinese Zodiac Calculator. One important detail: the Chinese year begins at the lunar New Year in late January or February, not on January 1st. If you were born in those early weeks of the year, your true sign may belong to the previous year — the calculator handles this adjustment for you.",
+      "Each animal carries a distinct temperament. The Rat is resourceful and quick-witted; the Ox patient and dependable; the Dragon visionary and magnetic. These traits describe tendencies rather than fixed fate — a starting point for reflection rather than a verdict.",
+      "Once you know your animal, explore deeper: pair it with your Five Elements profile for a richer portrait, or check your love compatibility with a partner. Your zodiac sign is the doorway; the elements and cycles are the rooms beyond it.",
+    ],
+  },
+  {
+    slug: "chinese-zodiac-compatibility-guide",
+    title: "Chinese Zodiac Compatibility Guide: Finding Your Best Matches",
+    excerpt:
+      "How the twelve animals attract, clash and complement one another — and what that means for love and friendship.",
+    date: "2024-05-28",
+    readingTime: "7 min read",
+    category: "Compatibility",
+    body: [
+      "Compatibility in Chinese astrology is built on the relationships between the twelve zodiac animals. The most harmonious pairings come from the four 'trines' — groups of three signs that share instinctive understanding and similar values.",
+      "The trines are: Rat, Dragon and Monkey (the achievers); Ox, Snake and Rooster (the thinkers); Tiger, Horse and Dog (the protectors); and Rabbit, Goat and Pig (the diplomats). Signs within the same trine tend to support one another effortlessly.",
+      "At the other extreme sit the six 'clash' pairs — signs positioned directly opposite on the zodiac wheel, such as Rat and Horse, or Dragon and Dog. These relationships are not doomed, but they require conscious patience, honest communication and respect for difference.",
+      "True compatibility, however, goes beyond the animals. Your Five Elements interact through generating and controlling cycles that can soften or sharpen a match. Two clashing signs whose elements nourish each other can build a surprisingly strong bond.",
+      "To see your own pairing in detail — with a score, summary and tailored advice — enter both birth dates into our Love Compatibility Calculator. It blends zodiac and elemental harmony into a single, practical reading.",
+    ],
+  },
+  {
+    slug: "five-elements-personality-traits",
+    title: "Five Elements Personality Traits: Which One Are You?",
+    excerpt:
+      "Wood, Fire, Earth, Metal and Water each shape a distinct character. Discover the strengths and blind spots of yours.",
+    date: "2024-05-20",
+    readingTime: "6 min read",
+    category: "Five Elements",
+    body: [
+      "In Chinese metaphysics, your dominant element colours your entire personality — how you think, work, love and recover. Each of the five carries a signature blend of strengths and challenges.",
+      "Wood people are visionary, compassionate and resilient pioneers who sometimes overcommit. Fire people are charismatic, confident and inspiring catalysts who can burn out or act on impulse. Earth people are dependable, patient and loyal anchors who may resist change.",
+      "Metal people are determined, organised and honest strategists whose perfectionism can tip into rigidity. Water people are intuitive, adaptable and persuasive philosophers who occasionally struggle with indecision or over-sensitivity.",
+      "Knowing your element is not about labelling yourself — it is about recognising your natural rhythm and the areas where deliberate balance helps. A Fire person learns to rest; an Earth person learns to embrace change.",
+      "Find your element in seconds with our Five Elements Calculator, then read the full personality, career and relationship analysis it generates from your birth date.",
+    ],
+  },
+  {
+    slug: "chinese-zodiac-elements-explained",
+    title: "Chinese Zodiac Elements Explained: The Sixty-Year Cycle",
+    excerpt:
+      "Your animal sign is only half the story — the element attached to it transforms the reading entirely.",
+    date: "2024-05-12",
+    readingTime: "6 min read",
+    category: "Five Elements",
+    body: [
+      "Many people know their zodiac animal but not their element. Yet every animal combines with one of the five elements, creating a richer sixty-year cycle — twelve animals multiplied by five elements — before any combination repeats.",
+      "This is why two people born in different Dragon years are not the same. A Wood Dragon is idealistic and growth-oriented; a Metal Dragon is disciplined and commanding; a Water Dragon is intuitive and diplomatic. The element shifts the animal's expression.",
+      "The element is decided by your birth year, following a ten-year rhythm tied to the last digit of the year and its yin or yang polarity. Together, animal and element form your 'pillar' — for example, a Yang Fire Horse or a Yin Earth Rabbit.",
+      "Understanding your full pillar deepens every other reading: your career fit, your lucky colours, and your compatibility with others all sharpen once the element is in view. Our Five Elements Calculator reveals both your animal and element from a single birth date.",
+    ],
+  },
+  {
+    slug: "lucky-colors-by-element",
+    title: "Lucky Colors By Element: Dress and Decorate in Harmony",
+    excerpt:
+      "Each element resonates with specific hues. Use them to align your wardrobe, home and intentions.",
+    date: "2024-05-06",
+    readingTime: "5 min read",
+    category: "Practice",
+    body: [
+      "Colour is one of the simplest, most immediate ways to work with your element. The right tones act as quiet reminders of your nature and gentle reinforcements of the energy you wish to cultivate.",
+      "Wood thrives with emerald green, teal and olive — the colours of growth and renewal. Fire is amplified by vermillion red, crimson and coral, hues of passion and visibility. Earth is grounded by golden ochre, sand and warm brown.",
+      "Metal is refined by antique gold, silver and white, expressing clarity and precision. Water flows with deep blue, teal and black — colours of depth, wisdom and calm adaptability.",
+      "Beyond your fixed element, you can use the generating cycle to invite more of a quality you need. Feeling scattered? Add Earth tones for stability. Feeling stuck? Bring in Wood greens for fresh momentum.",
+      "Discover your personalised palette — combining both your element and your zodiac animal — through our Five Elements and Daily Fortune tools.",
+    ],
+  },
+  {
+    slug: "chinese-astrology-for-beginners",
+    title: "Chinese Astrology For Beginners: Where to Start",
+    excerpt:
+      "New to Chinese astrology? This friendly roadmap covers the zodiac, the elements and how they fit together.",
+    date: "2024-04-28",
+    readingTime: "7 min read",
+    category: "Foundations",
+    body: [
+      "Chinese astrology can feel vast at first, but it rests on a few elegant ideas. Master these and the rest falls into place. Begin with the twelve zodiac animals, the most familiar layer, each tied to a birth year and a cluster of personality traits.",
+      "Next, meet the Five Elements — Wood, Fire, Earth, Metal and Water. These describe how energy moves and transforms, and they combine with the animals to give every person a unique 'pillar' such as Yang Wood Tiger or Yin Water Pig.",
+      "The elements relate through two cycles. The generating cycle shows how each nourishes the next; the controlling cycle shows how each keeps another in check. Together they explain balance, compatibility and timing.",
+      "From there, the practical applications open up: lucky colours and numbers, favourable directions, daily fortune and relationship compatibility. None of it is about predicting a fixed future — it is a mirror for self-understanding and intentional living.",
+      "The easiest way to learn is by doing. Enter your birth date into our Chinese Zodiac and Five Elements calculators, read your results, then return here to explore the ideas behind them in more depth.",
+    ],
+  },
 ];
 
 export function getPost(slug: string): BlogPost | undefined {

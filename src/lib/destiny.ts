@@ -19,6 +19,7 @@ export interface ElementProfile {
   challenges: string[];
   luckyColors: string[];
   luckyNumbers: number[];
+  luckyDirection: string; // traditional Feng Shui direction
   generates: ElementKey; // the element this one produces
   controls: ElementKey; // the element this one overcomes
 }
@@ -92,6 +93,7 @@ export const ELEMENTS: Record<ElementKey, ElementProfile> = {
     challenges: ["Overcommitting", "Impatience", "Difficulty saying no"],
     luckyColors: ["Emerald Green", "Teal", "Olive"],
     luckyNumbers: [3, 8],
+    luckyDirection: "East",
     generates: "fire",
     controls: "earth",
   },
@@ -115,6 +117,7 @@ export const ELEMENTS: Record<ElementKey, ElementProfile> = {
     challenges: ["Impulsiveness", "Burnout", "Restlessness"],
     luckyColors: ["Vermillion Red", "Crimson", "Coral"],
     luckyNumbers: [2, 7],
+    luckyDirection: "South",
     generates: "earth",
     controls: "metal",
   },
@@ -138,6 +141,7 @@ export const ELEMENTS: Record<ElementKey, ElementProfile> = {
     challenges: ["Stubbornness", "Over-caution", "Resistance to change"],
     luckyColors: ["Golden Ochre", "Sand", "Warm Brown"],
     luckyNumbers: [5, 0],
+    luckyDirection: "Center / Southwest",
     generates: "metal",
     controls: "water",
   },
@@ -161,6 +165,7 @@ export const ELEMENTS: Record<ElementKey, ElementProfile> = {
     challenges: ["Rigidity", "Perfectionism", "Emotional reserve"],
     luckyColors: ["Antique Gold", "Silver", "White"],
     luckyNumbers: [6, 9],
+    luckyDirection: "West",
     generates: "water",
     controls: "wood",
   },
@@ -184,6 +189,7 @@ export const ELEMENTS: Record<ElementKey, ElementProfile> = {
     challenges: ["Indecision", "Over-sensitivity", "Avoidance"],
     luckyColors: ["Deep Blue", "Teal", "Black"],
     luckyNumbers: [1, 4],
+    luckyDirection: "North",
     generates: "wood",
     controls: "fire",
   },

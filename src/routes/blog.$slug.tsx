@@ -2,6 +2,9 @@ import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-rout
 import { ArrowLeft } from "lucide-react";
 
 import { getPost, BLOG_POSTS, formatPostDate } from "@/lib/blog-helpers";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedContent } from "@/components/RelatedContent";
+import { absoluteUrl, breadcrumbJsonLd, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -17,10 +20,18 @@ export const Route = createFileRoute("/blog/$slug")({
           { property: "og:title", content: loaderData.title },
           { property: "og:description", content: loaderData.excerpt },
           { property: "og:type", content: "article" },
-          { property: "og:url", content: `/blog/${loaderData.slug}` },
+          { property: "og:url", content: absoluteUrl(`/blog/${loaderData.slug}`) },
+          { property: "og:image", content: DEFAULT_OG_IMAGE },
+          { property: "og:site_name", content: "Sìshén" },
+          { name: "twitter:card", content: "summary_large_image" },
+          { name: "twitter:title", content: loaderData.title },
+          { name: "twitter:description", content: loaderData.excerpt },
+          { name: "twitter:image", content: DEFAULT_OG_IMAGE },
         ]
       : [],
-    links: loaderData ? [{ rel: "canonical", href: `/blog/${loaderData.slug}` }] : [],
+    links: loaderData
+      ? [{ rel: "canonical", href: absoluteUrl(`/blog/${loaderData.slug}`) }]
+      : [],
     scripts: loaderData
       ? [
           {
@@ -31,9 +42,17 @@ export const Route = createFileRoute("/blog/$slug")({
               headline: loaderData.title,
               description: loaderData.excerpt,
               datePublished: loaderData.date,
+              image: DEFAULT_OG_IMAGE,
               author: { "@type": "Organization", name: "Sìshén" },
+              publisher: { "@type": "Organization", name: "Sìshén" },
+              mainEntityOfPage: absoluteUrl(`/blog/${loaderData.slug}`),
             }),
           },
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: loaderData.title, path: `/blog/${loaderData.slug}` },
+          ]),
         ]
       : [],
   }),
@@ -42,10 +61,19 @@ export const Route = createFileRoute("/blog/$slug")({
   notFoundComponent: PostNotFound,
 });
 
+
 function BlogPostPage() {
   const post = Route.useLoaderData();
   return (
     <article className="mx-auto max-w-3xl px-6 py-20 md:py-28">
+      <Breadcrumbs
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ]}
+      />
+
       <Link
         to="/blog"
         className="label-mono inline-flex items-center gap-2 text-[10px] text-accent hover:gap-3"
@@ -88,7 +116,10 @@ function BlogPostPage() {
             ))}
         </div>
       </div>
+
+      <RelatedContent heading="Try the tools" />
     </article>
+
   );
 }
 

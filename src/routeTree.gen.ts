@@ -10,9 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ZodiacRouteImport } from './routes/zodiac'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as FiveElementsRouteImport } from './routes/five-elements'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DailyFortuneRouteImport } from './routes/daily-fortune'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompatibilityRouteImport } from './routes/compatibility'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
@@ -24,9 +28,19 @@ const ZodiacRoute = ZodiacRouteImport.update({
   path: '/zodiac',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FiveElementsRoute = FiveElementsRouteImport.update({
@@ -34,9 +48,19 @@ const FiveElementsRoute = FiveElementsRouteImport.update({
   path: '/five-elements',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DailyFortuneRoute = DailyFortuneRouteImport.update({
   id: '/daily-fortune',
   path: '/daily-fortune',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompatibilityRoute = CompatibilityRouteImport.update({
@@ -70,9 +94,13 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/compatibility': typeof CompatibilityRoute
+  '/contact': typeof ContactRoute
   '/daily-fortune': typeof DailyFortuneRoute
+  '/faq': typeof FaqRoute
   '/five-elements': typeof FiveElementsRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/zodiac': typeof ZodiacRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
@@ -81,9 +109,13 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/compatibility': typeof CompatibilityRoute
+  '/contact': typeof ContactRoute
   '/daily-fortune': typeof DailyFortuneRoute
+  '/faq': typeof FaqRoute
   '/five-elements': typeof FiveElementsRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/zodiac': typeof ZodiacRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
@@ -93,9 +125,13 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/compatibility': typeof CompatibilityRoute
+  '/contact': typeof ContactRoute
   '/daily-fortune': typeof DailyFortuneRoute
+  '/faq': typeof FaqRoute
   '/five-elements': typeof FiveElementsRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/zodiac': typeof ZodiacRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
@@ -106,9 +142,13 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/compatibility'
+    | '/contact'
     | '/daily-fortune'
+    | '/faq'
     | '/five-elements'
+    | '/privacy'
     | '/sitemap.xml'
+    | '/terms'
     | '/zodiac'
     | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -117,9 +157,13 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/compatibility'
+    | '/contact'
     | '/daily-fortune'
+    | '/faq'
     | '/five-elements'
+    | '/privacy'
     | '/sitemap.xml'
+    | '/terms'
     | '/zodiac'
     | '/blog/$slug'
   id:
@@ -128,9 +172,13 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/compatibility'
+    | '/contact'
     | '/daily-fortune'
+    | '/faq'
     | '/five-elements'
+    | '/privacy'
     | '/sitemap.xml'
+    | '/terms'
     | '/zodiac'
     | '/blog/$slug'
   fileRoutesById: FileRoutesById
@@ -140,9 +188,13 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRouteWithChildren
   CompatibilityRoute: typeof CompatibilityRoute
+  ContactRoute: typeof ContactRoute
   DailyFortuneRoute: typeof DailyFortuneRoute
+  FaqRoute: typeof FaqRoute
   FiveElementsRoute: typeof FiveElementsRoute
+  PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
   ZodiacRoute: typeof ZodiacRoute
 }
 
@@ -155,11 +207,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ZodiacRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/five-elements': {
@@ -169,11 +235,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FiveElementsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/daily-fortune': {
       id: '/daily-fortune'
       path: '/daily-fortune'
       fullPath: '/daily-fortune'
       preLoaderRoute: typeof DailyFortuneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compatibility': {
@@ -229,9 +309,13 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BlogRoute: BlogRouteWithChildren,
   CompatibilityRoute: CompatibilityRoute,
+  ContactRoute: ContactRoute,
   DailyFortuneRoute: DailyFortuneRoute,
+  FaqRoute: FaqRoute,
   FiveElementsRoute: FiveElementsRoute,
+  PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
   ZodiacRoute: ZodiacRoute,
 }
 export const routeTree = rootRouteImport

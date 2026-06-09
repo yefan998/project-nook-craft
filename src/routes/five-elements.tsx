@@ -4,6 +4,8 @@ import { Sparkles } from "lucide-react";
 
 import { DateField } from "@/components/DateField";
 import { PageHeader } from "@/components/PageHeader";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedContent } from "@/components/RelatedContent";
 import {
   getReading,
   parseDateInput,
@@ -12,28 +14,40 @@ import {
   ELEMENTS,
 } from "@/lib/destiny";
 import { ELEMENT_IMAGES, ELEMENT_TEXT_CLASS, ELEMENT_BORDER_CLASS } from "@/lib/element-images";
+import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+
+const CRUMBS = [
+  { name: "Home", path: "/" },
+  { name: "Five Elements Calculator", path: "/five-elements" },
+];
 
 export const Route = createFileRoute("/five-elements")({
   head: () => ({
-    meta: [
-      { title: "Five Elements Calculator (Wu Xing) | Sìshén" },
+    meta: pageMeta({
+      title: "Five Elements Calculator (Wu Xing) | Sìshén",
+      description:
+        "Calculate your Chinese Five Elements (Wu Xing) profile from your birth date — element type, personality analysis, strengths, weaknesses, career suggestions, relationship insights and lucky colors, numbers and directions.",
+      path: "/five-elements",
+    }),
+    links: canonicalLink("/five-elements"),
+    scripts: [
       {
-        name: "description",
-        content:
-          "Calculate your Chinese Five Elements (Wu Xing) profile from your birth date — element type, personality analysis, career suggestions and relationship traits.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "Five Elements Calculator",
+          applicationCategory: "LifestyleApplication",
+          operatingSystem: "Web",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        }),
       },
-      { property: "og:title", content: "Five Elements Calculator (Wu Xing) | Sìshén" },
-      {
-        property: "og:description",
-        content:
-          "Find your Wu Xing element and read your personality, career and relationship analysis.",
-      },
-      { property: "og:url", content: "/five-elements" },
+      breadcrumbJsonLd(CRUMBS),
     ],
-    links: [{ rel: "canonical", href: "/five-elements" }],
   }),
   component: FiveElementsPage,
 });
+
 
 function FiveElementsPage() {
   const [dob, setDob] = useState("");
@@ -44,6 +58,8 @@ function FiveElementsPage() {
 
   return (
     <div className="px-6 py-20 md:py-28">
+      <Breadcrumbs items={CRUMBS} />
+
       <PageHeader
         eyebrow="The Five Elements · Wu Xing"
         title={
@@ -143,7 +159,16 @@ function FiveElementsPage() {
           </div>
 
           {/* Lucky + zodiac */}
-          <div className="grid gap-px bg-border md:grid-cols-3">
+          <div className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+            <div className="bg-background p-8">
+              <h3 className="label-mono mb-5 text-[11px] text-accent">Lucky Direction</h3>
+              <p className="display-italic text-3xl text-foreground">
+                {reading.element.luckyDirection}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Favour this direction for desks, beds and important decisions.
+              </p>
+            </div>
             <div className="bg-background p-8">
               <h3 className="label-mono mb-5 text-[11px] text-accent">Lucky Colors</h3>
               <ul className="space-y-2">
@@ -177,11 +202,21 @@ function FiveElementsPage() {
               </p>
             </div>
           </div>
+
+          <RelatedContent
+            excludeTool="/five-elements"
+            articleSlugs={[
+              "five-elements-personality-traits",
+              "chinese-zodiac-elements-explained",
+              "lucky-colors-by-element",
+            ]}
+          />
         </div>
       ) : (
         <ElementReference />
       )}
     </div>
+
   );
 }
 

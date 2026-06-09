@@ -4,26 +4,25 @@ import { Sparkles } from "lucide-react";
 
 import { DateField } from "@/components/DateField";
 import { PageHeader } from "@/components/PageHeader";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedContent } from "@/components/RelatedContent";
 import { getReading, parseDateInput, formatLongDate, ZODIACS } from "@/lib/destiny";
+import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+
+const CRUMBS = [
+  { name: "Home", path: "/" },
+  { name: "Chinese Zodiac Calculator", path: "/zodiac" },
+];
 
 export const Route = createFileRoute("/zodiac")({
   head: () => ({
-    meta: [
-      { title: "Chinese Zodiac Calculator | Sìshén" },
-      {
-        name: "description",
-        content:
-          "Find your Chinese zodiac animal from your birth date and read your personality, traits, strengths, weaknesses, best matches and lucky colors and numbers.",
-      },
-      { property: "og:title", content: "Chinese Zodiac Calculator | Sìshén" },
-      {
-        property: "og:description",
-        content:
-          "Discover your Chinese zodiac animal, personality traits, strengths and weaknesses.",
-      },
-      { property: "og:url", content: "/zodiac" },
-    ],
-    links: [{ rel: "canonical", href: "/zodiac" }],
+    meta: pageMeta({
+      title: "Chinese Zodiac Calculator | Sìshén",
+      description:
+        "Find your Chinese zodiac animal from your birth date and read your personality analysis, strengths, weaknesses, best matches, career insights and lucky colors, numbers and directions.",
+      path: "/zodiac",
+    }),
+    links: canonicalLink("/zodiac"),
     scripts: [
       {
         type: "application/ld+json",
@@ -36,10 +35,12 @@ export const Route = createFileRoute("/zodiac")({
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         }),
       },
+      breadcrumbJsonLd(CRUMBS),
     ],
   }),
   component: ZodiacPage,
 });
+
 
 function ZodiacPage() {
   const [dob, setDob] = useState("");
@@ -50,6 +51,8 @@ function ZodiacPage() {
 
   return (
     <div className="px-6 py-20 md:py-28">
+      <Breadcrumbs items={CRUMBS} />
+
       <PageHeader
         eyebrow="Chinese Zodiac · Shēngxiào"
         title={
@@ -131,7 +134,25 @@ function ZodiacPage() {
             </div>
           </div>
 
-          <div className="grid gap-px bg-border sm:grid-cols-2">
+          <div className="grid gap-px bg-border md:grid-cols-2">
+            <div className="bg-background p-8">
+              <h3 className="label-mono mb-5 text-[11px] text-accent">Career Suggestions</h3>
+              <ul className="space-y-3">
+                {reading.element.career.map((c) => (
+                  <li key={c} className="flex items-start gap-3 text-muted-foreground">
+                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-background p-8">
+              <h3 className="label-mono mb-5 text-[11px] text-accent">Relationship Insights</h3>
+              <p className="leading-relaxed text-muted-foreground">{reading.element.relationships}</p>
+            </div>
+          </div>
+
+          <div className="grid gap-px bg-border sm:grid-cols-3">
             <div className="bg-background p-8">
               <h3 className="label-mono mb-5 text-[11px] text-accent">Lucky Colors</h3>
               <p className="text-foreground">{reading.zodiac.luckyColors.join(" · ")}</p>
@@ -149,9 +170,25 @@ function ZodiacPage() {
                 ))}
               </div>
             </div>
+            <div className="bg-background p-8">
+              <h3 className="label-mono mb-5 text-[11px] text-accent">Lucky Direction</h3>
+              <p className="display-italic text-3xl text-foreground">
+                {reading.element.luckyDirection}
+              </p>
+            </div>
           </div>
+
+          <RelatedContent
+            excludeTool="/zodiac"
+            articleSlugs={[
+              "what-is-my-chinese-zodiac",
+              "chinese-zodiac-compatibility-guide",
+              "chinese-zodiac-elements-explained",
+            ]}
+          />
         </div>
       ) : (
+
         <div className="mx-auto mt-24 max-w-7xl">
           <h2 className="display-italic mb-10 text-center text-3xl text-muted-foreground">
             The twelve animals
