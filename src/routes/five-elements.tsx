@@ -4,6 +4,8 @@ import { Sparkles } from "lucide-react";
 
 import { DateField } from "@/components/DateField";
 import { PageHeader } from "@/components/PageHeader";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedContent } from "@/components/RelatedContent";
 import {
   getReading,
   parseDateInput,
@@ -12,28 +14,40 @@ import {
   ELEMENTS,
 } from "@/lib/destiny";
 import { ELEMENT_IMAGES, ELEMENT_TEXT_CLASS, ELEMENT_BORDER_CLASS } from "@/lib/element-images";
+import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+
+const CRUMBS = [
+  { name: "Home", path: "/" },
+  { name: "Five Elements Calculator", path: "/five-elements" },
+];
 
 export const Route = createFileRoute("/five-elements")({
   head: () => ({
-    meta: [
-      { title: "Five Elements Calculator (Wu Xing) | Sìshén" },
+    meta: pageMeta({
+      title: "Five Elements Calculator (Wu Xing) | Sìshén",
+      description:
+        "Calculate your Chinese Five Elements (Wu Xing) profile from your birth date — element type, personality analysis, strengths, weaknesses, career suggestions, relationship insights and lucky colors, numbers and directions.",
+      path: "/five-elements",
+    }),
+    links: canonicalLink("/five-elements"),
+    scripts: [
       {
-        name: "description",
-        content:
-          "Calculate your Chinese Five Elements (Wu Xing) profile from your birth date — element type, personality analysis, career suggestions and relationship traits.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "Five Elements Calculator",
+          applicationCategory: "LifestyleApplication",
+          operatingSystem: "Web",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        }),
       },
-      { property: "og:title", content: "Five Elements Calculator (Wu Xing) | Sìshén" },
-      {
-        property: "og:description",
-        content:
-          "Find your Wu Xing element and read your personality, career and relationship analysis.",
-      },
-      { property: "og:url", content: "/five-elements" },
+      breadcrumbJsonLd(CRUMBS),
     ],
-    links: [{ rel: "canonical", href: "/five-elements" }],
   }),
   component: FiveElementsPage,
 });
+
 
 function FiveElementsPage() {
   const [dob, setDob] = useState("");
