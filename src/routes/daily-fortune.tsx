@@ -54,6 +54,8 @@ function DailyFortunePage() {
 
   return (
     <div className="px-6 py-20 md:py-28">
+      <Breadcrumbs items={CRUMBS} />
+
       <PageHeader
         eyebrow={`Daily Alignment · ${formatLongDate(today)}`}
         title={
