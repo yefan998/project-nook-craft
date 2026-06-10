@@ -7,7 +7,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedContent } from "@/components/RelatedContent";
 import { getReading, parseDateInput, formatLongDate, ZODIACS } from "@/lib/destiny";
-import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+import { pageMeta, canonicalLink, breadcrumbJsonLd, webPageJsonLd } from "@/lib/seo";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -35,6 +35,12 @@ export const Route = createFileRoute("/zodiac")({
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         }),
       },
+      webPageJsonLd({
+        name: "Chinese Zodiac Calculator | Sìshén",
+        description:
+          "Find your Chinese zodiac animal from your birth date with personality analysis, strengths, weaknesses, best matches and lucky attributes.",
+        path: "/zodiac",
+      }),
       breadcrumbJsonLd(CRUMBS),
     ],
   }),

@@ -84,6 +84,75 @@ export function breadcrumbJsonLd(crumbs: Crumb[]) {
   };
 }
 
+/** Article JSON-LD script object — for blog posts. */
+export function articleJsonLd({
+  headline,
+  description,
+  path,
+  datePublished,
+  dateModified,
+  image = DEFAULT_OG_IMAGE,
+}: {
+  headline: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified?: string;
+  image?: string;
+}) {
+  return {
+    type: "application/ld+json",
+    children: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline,
+      description,
+      image,
+      datePublished,
+      dateModified: dateModified ?? datePublished,
+      author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl(path) },
+    }),
+  };
+}
+
+/** WebPage JSON-LD script object — for calculators and content pages. */
+export function webPageJsonLd({
+  name,
+  description,
+  path,
+  datePublished = "2026-01-01",
+  image = DEFAULT_OG_IMAGE,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  datePublished?: string;
+  image?: string;
+}) {
+  const url = absoluteUrl(path);
+  return {
+    type: "application/ld+json",
+    children: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": url,
+      url,
+      name,
+      headline: name,
+      description,
+      image,
+      datePublished,
+      author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      mainEntityOfPage: { "@type": "WebPage", "@id": url },
+      isPartOf: { "@type": "WebSite", name: SITE_NAME, url: SITE_URL },
+      inLanguage: "en",
+    }),
+  };
+}
+
 /** FAQPage JSON-LD script object. */
 export function faqJsonLd(faqs: { q: string; a: string }[]) {
   return {

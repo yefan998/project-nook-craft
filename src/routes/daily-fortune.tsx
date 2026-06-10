@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedContent } from "@/components/RelatedContent";
 import { ScoreMeter } from "@/components/ScoreMeter";
 import { getDailyFortune, getReading, parseDateInput, formatLongDate } from "@/lib/destiny";
-import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+import { pageMeta, canonicalLink, breadcrumbJsonLd, webPageJsonLd } from "@/lib/seo";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -35,6 +35,12 @@ export const Route = createFileRoute("/daily-fortune")({
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         }),
       },
+      webPageJsonLd({
+        name: "Daily Fortune Reading | Sìshén",
+        description:
+          "Your daily Chinese fortune for love, career, wealth and health — a personalized forecast with lucky colors, numbers and directions.",
+        path: "/daily-fortune",
+      }),
       breadcrumbJsonLd(CRUMBS),
     ],
   }),

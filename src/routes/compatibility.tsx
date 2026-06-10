@@ -7,7 +7,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedContent } from "@/components/RelatedContent";
 import { getCompatibility, parseDateInput } from "@/lib/destiny";
-import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+import { pageMeta, canonicalLink, breadcrumbJsonLd, webPageJsonLd } from "@/lib/seo";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -35,6 +35,12 @@ export const Route = createFileRoute("/compatibility")({
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         }),
       },
+      webPageJsonLd({
+        name: "Love Compatibility Calculator | Sìshén",
+        description:
+          "Compare two birth dates to reveal your Chinese zodiac and Five Elements compatibility score, relationship summary and personalized advice.",
+        path: "/compatibility",
+      }),
       breadcrumbJsonLd(CRUMBS),
     ],
   }),
