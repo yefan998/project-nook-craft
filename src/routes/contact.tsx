@@ -12,9 +12,9 @@ const CRUMBS = [
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: pageMeta({
-      title: "Contact Us | Sìshén",
+      title: "Contact Us | SiShen",
       description:
-        "Get in touch with the Sìshén team. Questions, feedback or suggestions about our Chinese zodiac and Five Elements tools — we'd love to hear from you.",
+        "Get in touch with the SiShen team. Questions, feedback or suggestions about our Chinese zodiac and Five Elements tools — we'd love to hear from you.",
       path: "/contact",
     }),
     links: canonicalLink("/contact"),

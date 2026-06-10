@@ -13,7 +13,7 @@ const CRUMBS = [
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: pageMeta({
-      title: "Blog — Chinese Metaphysics & Destiny | Sìshén",
+      title: "Blog — Chinese Metaphysics & Destiny | SiShen",
       description:
         "Guides and reflections on Chinese metaphysics: the Five Elements, the zodiac, lucky colors and numbers, compatibility and how to align daily life with your nature.",
       path: "/blog",

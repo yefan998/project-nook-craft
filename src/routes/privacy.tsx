@@ -12,7 +12,7 @@ const CRUMBS = [
 const SECTIONS = [
   {
     title: "Your data stays with you",
-    body: "Sìshén performs all destiny calculations directly in your browser. Your birth date is never sent to our servers, stored, or shared with third parties.",
+    body: "SiShen performs all destiny calculations directly in your browser. Your birth date is never sent to our servers, stored, or shared with third parties.",
   },
   {
     title: "Information we collect",
@@ -39,9 +39,9 @@ const SECTIONS = [
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: pageMeta({
-      title: "Privacy Policy | Sìshén",
+      title: "Privacy Policy | SiShen",
       description:
-        "How Sìshén protects your privacy. All destiny calculations run in your browser — your birth date is never stored or transmitted.",
+        "How SiShen protects your privacy. All destiny calculations run in your browser — your birth date is never stored or transmitted.",
       path: "/privacy",
     }),
     links: canonicalLink("/privacy"),
@@ -61,7 +61,7 @@ function PrivacyPage() {
             Privacy <span className="text-primary">Policy</span>
           </>
         }
-        description="We built Sìshén to be private by design. Here is exactly how we handle your information."
+        description="We built SiShen to be private by design. Here is exactly how we handle your information."
       />
 
       <div className="mx-auto mt-16 max-w-3xl space-y-px bg-border">

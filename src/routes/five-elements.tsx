@@ -24,7 +24,7 @@ const CRUMBS = [
 export const Route = createFileRoute("/five-elements")({
   head: () => ({
     meta: pageMeta({
-      title: "Five Elements Calculator (Wu Xing) | Sìshén",
+      title: "Five Elements Calculator (Wu Xing) | SiShen",
       description:
         "Calculate your Chinese Five Elements (Wu Xing) profile from your birth date — element type, personality analysis, strengths, weaknesses, career suggestions, relationship insights and lucky colors, numbers and directions.",
       path: "/five-elements",
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/five-elements")({
         }),
       },
       webPageJsonLd({
-        name: "Five Elements Calculator (Wu Xing) | Sìshén",
+        name: "Five Elements Calculator (Wu Xing) | SiShen",
         description:
           "Calculate your Chinese Five Elements (Wu Xing) profile from your birth date — element type, personality, strengths, weaknesses, career and lucky attributes.",
         path: "/five-elements",

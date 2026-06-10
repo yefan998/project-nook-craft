@@ -17,7 +17,7 @@ const CRUMBS = [
 export const Route = createFileRoute("/compatibility")({
   head: () => ({
     meta: pageMeta({
-      title: "Love Compatibility Calculator | Sìshén",
+      title: "Love Compatibility Calculator | SiShen",
       description:
         "Compare two birth dates to reveal your Chinese zodiac and Five Elements compatibility score, relationship summary, strengths and personalized advice.",
       path: "/compatibility",
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/compatibility")({
         }),
       },
       webPageJsonLd({
-        name: "Love Compatibility Calculator | Sìshén",
+        name: "Love Compatibility Calculator | SiShen",
         description:
           "Compare two birth dates to reveal your Chinese zodiac and Five Elements compatibility score, relationship summary and personalized advice.",
         path: "/compatibility",
