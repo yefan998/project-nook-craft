@@ -3,12 +3,12 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { to: "/five-elements", label: "Elements" },
-  { to: "/zodiac", label: "Zodiac" },
+  { to: "/", label: "Home" },
+  { to: "/zodiac", label: "Chinese Zodiac" },
+  { to: "/five-elements", label: "Five Elements" },
   { to: "/compatibility", label: "Compatibility" },
   { to: "/daily-fortune", label: "Daily Fortune" },
   { to: "/blog", label: "Blog" },
-  { to: "/about", label: "About" },
 ] as const;
 
 export function SiteHeader() {
@@ -17,8 +17,11 @@ export function SiteHeader() {
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="display-italic text-2xl tracking-tight text-accent">
-          Sìshén
+        <Link to="/" className="flex flex-col leading-tight">
+          <span className="display-italic text-2xl tracking-tight text-accent">SiShen</span>
+          <span className="label-mono text-[8px] uppercase tracking-widest text-muted-foreground">
+            Chinese Zodiac & Five Elements
+          </span>
         </Link>
 
         <div className="hidden items-center gap-7 md:flex">
