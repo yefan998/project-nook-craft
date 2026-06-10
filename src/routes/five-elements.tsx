@@ -14,7 +14,7 @@ import {
   ELEMENTS,
 } from "@/lib/destiny";
 import { ELEMENT_IMAGES, ELEMENT_TEXT_CLASS, ELEMENT_BORDER_CLASS } from "@/lib/element-images";
-import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+import { pageMeta, canonicalLink, breadcrumbJsonLd, webPageJsonLd } from "@/lib/seo";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -42,6 +42,12 @@ export const Route = createFileRoute("/five-elements")({
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         }),
       },
+      webPageJsonLd({
+        name: "Five Elements Calculator (Wu Xing) | Sìshén",
+        description:
+          "Calculate your Chinese Five Elements (Wu Xing) profile from your birth date — element type, personality, strengths, weaknesses, career and lucky attributes.",
+        path: "/five-elements",
+      }),
       breadcrumbJsonLd(CRUMBS),
     ],
   }),
