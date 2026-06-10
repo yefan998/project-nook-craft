@@ -19,8 +19,11 @@ export function SiteFooter() {
     <footer className="border-t border-border py-12">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-          <div className="display-italic text-xl tracking-tight text-accent">
-            Sìshén Destiny Systems
+          <div className="flex flex-col">
+            <span className="display-italic text-xl tracking-tight text-accent">SiShen</span>
+            <span className="label-mono text-[9px] uppercase tracking-widest text-muted-foreground">
+              Chinese Zodiac & Five Elements
+            </span>
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
             {FOOTER_LINKS.map((link) => (
@@ -40,7 +43,7 @@ export function SiteFooter() {
             traditional Chinese metaphysics. Trust your own judgment for important decisions.
           </p>
           <span className="label-mono text-[9px] text-muted-foreground">
-            © {new Date().getFullYear()} Sìshén · Celestial Data
+            © {new Date().getFullYear()} SiShen · Chinese Zodiac & Five Elements
           </span>
         </div>
       </div>

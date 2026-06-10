@@ -12,11 +12,11 @@ const CRUMBS = [
 const SECTIONS = [
   {
     title: "Acceptance of terms",
-    body: "By accessing or using Sìshén, you agree to these Terms of Service. If you do not agree, please do not use the site.",
+    body: "By accessing or using SiShen, you agree to these Terms of Service. If you do not agree, please do not use the site.",
   },
   {
     title: "Nature of the service",
-    body: "Sìshén provides Chinese zodiac, Five Elements and compatibility readings for reflection and entertainment, drawing on traditional Chinese metaphysics. Our content is not professional, medical, legal or financial advice.",
+    body: "SiShen provides Chinese zodiac, Five Elements and compatibility readings for reflection and entertainment, drawing on traditional Chinese metaphysics. Our content is not professional, medical, legal or financial advice.",
   },
   {
     title: "Use of the site",
@@ -24,7 +24,7 @@ const SECTIONS = [
   },
   {
     title: "Intellectual property",
-    body: "All content, design and text on Sìshén are owned by us or our licensors and may not be reproduced without permission.",
+    body: "All content, design and text on SiShen are owned by us or our licensors and may not be reproduced without permission.",
   },
   {
     title: "Disclaimer of warranties",
@@ -32,7 +32,7 @@ const SECTIONS = [
   },
   {
     title: "Limitation of liability",
-    body: "To the fullest extent permitted by law, Sìshén is not liable for any decisions made or actions taken based on the content provided.",
+    body: "To the fullest extent permitted by law, SiShen is not liable for any decisions made or actions taken based on the content provided.",
   },
   {
     title: "Changes to these terms",
@@ -43,9 +43,9 @@ const SECTIONS = [
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: pageMeta({
-      title: "Terms of Service | Sìshén",
+      title: "Terms of Service | SiShen",
       description:
-        "The terms governing your use of Sìshén's Chinese zodiac and Five Elements tools. Readings are offered for reflection and entertainment.",
+        "The terms governing your use of SiShen's Chinese zodiac and Five Elements tools. Readings are offered for reflection and entertainment.",
       path: "/terms",
     }),
     links: canonicalLink("/terms"),
@@ -65,7 +65,7 @@ function TermsPage() {
             Terms of <span className="text-primary">Service</span>
           </>
         }
-        description="Please read these terms carefully before using Sìshén."
+        description="Please read these terms carefully before using SiShen."
       />
 
       <div className="mx-auto mt-16 max-w-3xl space-y-px bg-border">

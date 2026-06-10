@@ -39,9 +39,9 @@ const FAQS = [
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: pageMeta({
-      title: "Frequently Asked Questions | Sìshén",
+      title: "Frequently Asked Questions | SiShen",
       description:
-        "Answers to common questions about the Chinese zodiac, the Five Elements, compatibility, privacy and how Sìshén's destiny tools work.",
+        "Answers to common questions about the Chinese zodiac, the Five Elements, compatibility, privacy and how SiShen's destiny tools work.",
       path: "/faq",
     }),
     links: canonicalLink("/faq"),

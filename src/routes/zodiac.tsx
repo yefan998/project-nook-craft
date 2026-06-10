@@ -17,7 +17,7 @@ const CRUMBS = [
 export const Route = createFileRoute("/zodiac")({
   head: () => ({
     meta: pageMeta({
-      title: "Chinese Zodiac Calculator | Sìshén",
+      title: "Chinese Zodiac Calculator | SiShen",
       description:
         "Find your Chinese zodiac animal from your birth date and read your personality analysis, strengths, weaknesses, best matches, career insights and lucky colors, numbers and directions.",
       path: "/zodiac",
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/zodiac")({
         }),
       },
       webPageJsonLd({
-        name: "Chinese Zodiac Calculator | Sìshén",
+        name: "Chinese Zodiac Calculator | SiShen",
         description:
           "Find your Chinese zodiac animal from your birth date with personality analysis, strengths, weaknesses, best matches and lucky attributes.",
         path: "/zodiac",

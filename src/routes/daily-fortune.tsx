@@ -17,7 +17,7 @@ const CRUMBS = [
 export const Route = createFileRoute("/daily-fortune")({
   head: () => ({
     meta: pageMeta({
-      title: "Daily Fortune Reading | Sìshén",
+      title: "Daily Fortune Reading | SiShen",
       description:
         "Your daily Chinese fortune for love, career, wealth and health — a personalized forecast based on your birth date and today's energy, with lucky colors, numbers and directions.",
       path: "/daily-fortune",
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/daily-fortune")({
         }),
       },
       webPageJsonLd({
-        name: "Daily Fortune Reading | Sìshén",
+        name: "Daily Fortune Reading | SiShen",
         description:
           "Your daily Chinese fortune for love, career, wealth and health — a personalized forecast with lucky colors, numbers and directions.",
         path: "/daily-fortune",

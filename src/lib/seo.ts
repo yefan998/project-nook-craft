@@ -3,7 +3,7 @@
 // crawler-friendly absolute URLs, Open Graph, Twitter cards and JSON-LD.
 
 export const SITE_URL = "https://project-nook-craft.lovable.app";
-export const SITE_NAME = "Sìshén";
+export const SITE_NAME = "SiShen";
 export const DEFAULT_OG_IMAGE =
   "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/385ef51c-b75b-45a9-878d-172b531688f9/id-preview-aad9d7e6--e62b36e6-e62a-4aff-b74b-0055a7e4efbc.lovable.app-1780437270955.png";
 

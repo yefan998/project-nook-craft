@@ -30,17 +30,17 @@ import mountainsCta from "@/assets/mountains-cta.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Chinese Five Elements Calculator | Wu Xing Destiny Analysis" },
+      { title: "Chinese Zodiac Calculator & Five Elements Analysis | SiShen" },
       {
         name: "description",
         content:
-          "Discover your Chinese Zodiac, Five Elements, lucky colors, compatibility, and daily fortune through personalized destiny analysis based on ancient Chinese wisdom.",
+          "Discover your Chinese Zodiac sign, Five Elements profile, compatibility matches, and daily fortune insights.",
       },
-      { property: "og:title", content: "Chinese Five Elements Calculator | Wu Xing Destiny Analysis" },
+      { property: "og:title", content: "Chinese Zodiac Calculator & Five Elements Analysis | SiShen" },
       {
         property: "og:description",
         content:
-          "Discover your Chinese Zodiac, Five Elements, lucky colors, compatibility, and daily fortune through personalized destiny analysis based on ancient Chinese wisdom.",
+          "Discover your Chinese Zodiac sign, Five Elements profile, compatibility matches, and daily fortune insights.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -197,8 +197,8 @@ function Hero() {
           transition={{ duration: 0.8, delay: 0.25 }}
           className="mx-auto mt-7 max-w-[52ch] text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
         >
-          Unlock ancient Chinese wisdom through personalized zodiac readings,
-          compatibility insights and fortune guidance.
+          Explore Chinese Zodiac readings, Five Elements analysis,
+          compatibility matching, and daily fortune guidance.
         </motion.p>
 
         <motion.div

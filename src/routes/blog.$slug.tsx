@@ -21,14 +21,14 @@ export const Route = createFileRoute("/blog/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.title} | Sìshén` },
+          { title: `${loaderData.title} | SiShen` },
           { name: "description", content: loaderData.excerpt },
           { property: "og:title", content: loaderData.title },
           { property: "og:description", content: loaderData.excerpt },
           { property: "og:type", content: "article" },
           { property: "og:url", content: absoluteUrl(`/blog/${loaderData.slug}`) },
           { property: "og:image", content: DEFAULT_OG_IMAGE },
-          { property: "og:site_name", content: "Sìshén" },
+          { property: "og:site_name", content: "SiShen" },
           { name: "twitter:card", content: "summary_large_image" },
           { name: "twitter:title", content: loaderData.title },
           { name: "twitter:description", content: loaderData.excerpt },
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/blog/$slug")({
             datePublished: loaderData.date,
           }),
           webPageJsonLd({
-            name: `${loaderData.title} | Sìshén`,
+            name: `${loaderData.title} | SiShen`,
             description: loaderData.excerpt,
             path: `/blog/${loaderData.slug}`,
             datePublished: loaderData.date,

@@ -12,9 +12,9 @@ const CRUMBS = [
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: pageMeta({
-      title: "About — Ancient Wisdom, Modern Clarity | Sìshén",
+      title: "About — Ancient Wisdom, Modern Clarity | SiShen",
       description:
-        "Sìshén translates traditional Chinese metaphysics — the Five Elements and the zodiac — into clear, modern destiny analysis for self-understanding.",
+        "SiShen translates traditional Chinese metaphysics — the Five Elements and the zodiac — into clear, modern destiny analysis for self-understanding.",
       path: "/about",
     }),
     links: canonicalLink("/about"),
@@ -55,7 +55,7 @@ function AboutPage() {
             Ancient wisdom, <span className="text-primary">modern clarity</span>
           </>
         }
-        description="Sìshén exists to make traditional Chinese metaphysics approachable — a calm, considered lens for understanding your nature."
+        description="SiShen exists to make traditional Chinese metaphysics approachable — a calm, considered lens for understanding your nature."
       />
 
       <div className="animate-reveal mx-auto mt-16 max-w-3xl space-y-6 text-lg leading-relaxed text-muted-foreground">
@@ -66,7 +66,7 @@ function AboutPage() {
           life.
         </p>
         <p>
-          We built Sìshén to carry that grammar forward. By reading your birth date through these
+          We built SiShen to carry that grammar forward. By reading your birth date through these
           ancient cycles, we offer a portrait of your strengths, your blind spots, the careers that
           suit you, and the connections that nourish you.
         </p>
