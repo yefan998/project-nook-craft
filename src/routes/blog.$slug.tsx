@@ -40,20 +40,18 @@ export const Route = createFileRoute("/blog/$slug")({
       : [],
     scripts: loaderData
       ? [
-          {
-            type: "application/ld+json",
-            children: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Article",
-              headline: loaderData.title,
-              description: loaderData.excerpt,
-              datePublished: loaderData.date,
-              image: DEFAULT_OG_IMAGE,
-              author: { "@type": "Organization", name: "Sìshén" },
-              publisher: { "@type": "Organization", name: "Sìshén" },
-              mainEntityOfPage: absoluteUrl(`/blog/${loaderData.slug}`),
-            }),
-          },
+          articleJsonLd({
+            headline: loaderData.title,
+            description: loaderData.excerpt,
+            path: `/blog/${loaderData.slug}`,
+            datePublished: loaderData.date,
+          }),
+          webPageJsonLd({
+            name: `${loaderData.title} | Sìshén`,
+            description: loaderData.excerpt,
+            path: `/blog/${loaderData.slug}`,
+            datePublished: loaderData.date,
+          }),
           breadcrumbJsonLd([
             { name: "Home", path: "/" },
             { name: "Blog", path: "/blog" },
