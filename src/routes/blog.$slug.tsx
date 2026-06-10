@@ -4,7 +4,13 @@ import { ArrowLeft } from "lucide-react";
 import { getPost, BLOG_POSTS, formatPostDate } from "@/lib/blog-helpers";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedContent } from "@/components/RelatedContent";
-import { absoluteUrl, breadcrumbJsonLd, DEFAULT_OG_IMAGE } from "@/lib/seo";
+import {
+  absoluteUrl,
+  articleJsonLd,
+  breadcrumbJsonLd,
+  webPageJsonLd,
+  DEFAULT_OG_IMAGE,
+} from "@/lib/seo";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
