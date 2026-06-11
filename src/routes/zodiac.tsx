@@ -85,7 +85,13 @@ function ZodiacPage() {
             <span className="label-mono text-[10px] text-accent">
               Born {formatLongDate(reading.date)}
             </span>
-            <div className="mt-4 text-7xl">{reading.zodiac.emoji}</div>
+            
+            <img
+              src={reading.zodiac.image}
+              alt={reading.zodiac.name}
+              className="mx-auto mt-6 h-56 w-56 rounded-3xl object-cover border-4 border-yellow-500 shadow-[0_0_40px_rgba(234,179,8,0.4)]"
+             />
+            
             <h2 className="display-italic mt-4 text-6xl text-foreground">{reading.zodiac.name}</h2>
             <p className="mt-1 text-lg text-muted-foreground">
               {reading.zodiac.chinese} · {reading.zodiac.pinyin}
