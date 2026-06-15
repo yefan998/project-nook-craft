@@ -91,8 +91,9 @@ function ZodiacPage() {
             </span>
 
             <img
-              src={reading.zodiac.image}
+              src="/zodiac/rat.png"
               alt={reading.zodiac.name}
+            />  
               className="mx-auto mt-6 h-56 w-56 rounded-3xl object-cover border-4 border-yellow-500 shadow-[0_0_40px_rgba(234,179,8,0.4)]"
             />
 
