@@ -207,7 +207,7 @@ export const ZODIACS: ZodiacProfile[] = [
     name: "Rat",
     chinese: "鼠",
     pinyin: "Shǔ",
-    emoji: "/zodiac/rat.png",
+    image: "/zodiac/rat.png",
     years: "1960, 1972, 1984, 1996, 2008, 2020",
     personality:
       "Quick-witted, resourceful and charming, the Rat thrives on opportunity and adapts to any situation with clever ease.",
@@ -223,7 +223,7 @@ export const ZODIACS: ZodiacProfile[] = [
     name: "Ox",
     chinese: "牛",
     pinyin: "Niú",
-    emoji: "/zodiac/ox.png",
+    image: "/zodiac/ox.png",
     years: "1961, 1973, 1985, 1997, 2009, 2021",
     personality:
       "Diligent, dependable and strong, the Ox builds success through patience and persistence rather than shortcuts.",
@@ -239,7 +239,7 @@ export const ZODIACS: ZodiacProfile[] = [
     name: "Tiger",
     chinese: "虎",
     pinyin: "Hǔ",
-    emoji: "/zodiac/tiger.png",
+    image: "/zodiac/tiger.png",
     years: "1962, 1974, 1986, 1998, 2010, 2022",
     personality:
       "Brave, competitive and magnetic, the Tiger leads with courage and a fierce sense of justice.",
@@ -255,7 +255,7 @@ export const ZODIACS: ZodiacProfile[] = [
     name: "Rabbit",
     chinese: "兔",
     pinyin: "Tù",
-    emoji: "/zodiac/rabbit.png",
+    image: "/zodiac/rabbit.png",
     years: "1963, 1975, 1987, 1999, 2011, 2023",
     personality:
       "Gentle, elegant and kind, the Rabbit values harmony and creates beauty and calm wherever it goes.",
@@ -271,7 +271,7 @@ export const ZODIACS: ZodiacProfile[] = [
     name: "Dragon",
     chinese: "龙",
     pinyin: "Lóng",
-    emoji: "/zodiacdragon",
+    image: "/zodiac/dragon.png",
     years: "1964, 1976, 1988, 2000, 2012, 2024",
     personality:
       "Visionary, powerful and lucky, the Dragon commands attention and pursues greatness with unstoppable confidence.",
@@ -287,7 +287,7 @@ export const ZODIACS: ZodiacProfile[] = [
     name: "Snake",
     chinese: "蛇",
     pinyin: "Shé",
-    emoji: "/zodiac/snake.png",
+    image: "/zodiac/snake.png",
     years: "1965, 1977, 1989, 2001, 2013, 2025",
     personality:
       "Wise, intuitive and graceful, the Snake observes deeply and acts with calculated precision.",
@@ -303,7 +303,7 @@ export const ZODIACS: ZodiacProfile[] = [
     name: "Horse",
     chinese: "马",
     pinyin: "Mǎ",
-    emoji: "/zodiac/horse.png",
+    image: "/zodiac/horse.png",
     years: "1966, 1978, 1990, 2002, 2014, 2026",
     personality:
       "Free-spirited, energetic and warm, the Horse chases adventure and inspires others with boundless optimism.",
@@ -319,7 +319,7 @@ export const ZODIACS: ZodiacProfile[] = [
     name: "Goat",
     chinese: "羊",
     pinyin: "Yáng",
-    emoji: "/zodiac/goat.png",
+    image: "/zodiac/goat.png",
     years: "1967, 1979, 1991, 2003, 2015, 2027",
     personality:
       "Tender, creative and peace-loving, the Goat nurtures beauty and devotion in everything it touches.",
@@ -335,7 +335,7 @@ export const ZODIACS: ZodiacProfile[] = [
     name: "Monkey",
     chinese: "猴",
     pinyin: "Hóu",
-    emoji: "/zodiac/monkey.png",
+    image: "/zodiac/monkey.png",
     years: "1968, 1980, 1992, 2004, 2016, 2028",
     personality:
       "Clever, playful and inventive, the Monkey solves problems with wit and never stops exploring.",
@@ -351,7 +351,7 @@ export const ZODIACS: ZodiacProfile[] = [
     name: "Rooster",
     chinese: "鸡",
     pinyin: "Jī",
-    emoji: "/zodiac/rooster.png",
+    image: "/zodiac/rooster.png",
     years: "1969, 1981, 1993, 2005, 2017, 2029",
     personality:
       "Observant, confident and hardworking, the Rooster takes pride in excellence and speaks its mind.",
@@ -367,7 +367,7 @@ export const ZODIACS: ZodiacProfile[] = [
     name: "Dog",
     chinese: "狗",
     pinyin: "Gǒu",
-    emoji: "/zodiac/dog.png",
+    image: "/zodiac/dog.png",
     years: "1970, 1982, 1994, 2006, 2018, 2030",
     personality:
       "Loyal, honest and protective, the Dog stands firmly by its values and the people it loves.",
@@ -383,7 +383,7 @@ export const ZODIACS: ZodiacProfile[] = [
     name: "Pig",
     chinese: "猪",
     pinyin: "Zhū",
-    emoji: "/zodiac/pig.png",
+    image: "/zodiac/pig.png",
     years: "1971, 1983, 1995, 2007, 2019, 2031",
     personality:
       "Generous, sincere and easy-going, the Pig enjoys life's pleasures and gives wholeheartedly to others.",
