@@ -89,12 +89,12 @@ function CompatibilityPage() {
             <p className="label-mono mt-3 text-[11px] text-accent">{result.verdict}</p>
             <div className="mt-6 flex items-center justify-center gap-4 text-muted-foreground">
               <span className="flex items-center gap-2">
-                <span className="text-2xl">{result.zodiacA.emoji}</span>
+                <img src={result.zodiacA.image} alt={`${result.zodiacA.name} zodiac`} loading="lazy" className="size-8 object-contain" />
                 {result.elementA.name} {result.zodiacA.name}
               </span>
               <span className="text-accent">×</span>
               <span className="flex items-center gap-2">
-                <span className="text-2xl">{result.zodiacB.emoji}</span>
+                <img src={result.zodiacB.image} alt={`${result.zodiacB.name} zodiac`} loading="lazy" className="size-8 object-contain" />
                 {result.elementB.name} {result.zodiacB.name}
               </span>
             </div>

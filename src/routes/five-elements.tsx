@@ -200,8 +200,9 @@ function FiveElementsPage() {
             </div>
             <div className="bg-background p-8">
               <h3 className="label-mono mb-5 text-[11px] text-accent">Zodiac Sign</h3>
-              <p className="display-italic text-3xl text-foreground">
-                {reading.zodiac.emoji} {reading.zodiac.name}
+              <p className="display-italic flex items-center gap-3 text-3xl text-foreground">
+                <img src={reading.zodiac.image} alt={`${reading.zodiac.name} zodiac`} loading="lazy" className="size-10 object-contain" />
+                {reading.zodiac.name}
               </p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {reading.zodiac.personality}
