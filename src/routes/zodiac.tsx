@@ -217,7 +217,7 @@ function ZodiacPage() {
           <div className="grid grid-cols-2 gap-px bg-border sm:grid-cols-3 lg:grid-cols-4">
             {ZODIACS.map((z) => (
               <div key={z.key} className="bg-background p-6">
-                <div className="text-4xl">{z.emoji}</div>
+                <img src={z.image} alt={`${z.name} Chinese zodiac`} loading="lazy" className="size-14 object-contain" />
                 <h3 className="display-italic mt-3 text-2xl text-foreground">{z.name}</h3>
                 <p className="label-mono mt-1 text-[9px] text-muted-foreground">{z.years}</p>
               </div>

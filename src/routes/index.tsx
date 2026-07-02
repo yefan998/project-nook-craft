@@ -346,9 +346,12 @@ function ZodiacSection() {
                 className="glass relative flex aspect-[3/4] flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl p-4 text-center transition-shadow duration-300 group-hover:shadow-[0_0_30px_-4px_hsl(42_60%_55%/0.5)]"
               >
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,_hsl(42_60%_55%/0.16),_transparent_70%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <span className="relative text-5xl transition-transform duration-300 group-hover:scale-110">
-                  {z.emoji}
-                </span>
+                <img
+                  src={z.image}
+                  alt={`${z.name} Chinese zodiac`}
+                  loading="lazy"
+                  className="relative size-16 object-contain transition-transform duration-300 group-hover:scale-110"
+                />
                 <span className="font-display relative text-2xl text-accent">{z.chinese}</span>
                 <h3 className="display-italic relative text-lg text-foreground">{z.name}</h3>
               </Link>
