@@ -8,6 +8,7 @@ import {
   absoluteUrl,
   articleJsonLd,
   breadcrumbJsonLd,
+  faqJsonLd,
   webPageJsonLd,
   DEFAULT_OG_IMAGE,
 } from "@/lib/seo";
@@ -57,6 +58,7 @@ export const Route = createFileRoute("/blog/$slug")({
             { name: "Blog", path: "/blog" },
             { name: loaderData.title, path: `/blog/${loaderData.slug}` },
           ]),
+          ...(loaderData.faqs ? [faqJsonLd(loaderData.faqs)] : []),
         ]
       : [],
   }),
@@ -100,6 +102,20 @@ function BlogPostPage() {
           </p>
         ))}
       </div>
+
+      {post.faqs && (
+        <section className="mt-14 border-t border-border pt-10">
+          <h2 className="display-italic text-3xl text-foreground">Frequently asked questions</h2>
+          <div className="mt-6 grid gap-px bg-border">
+            {post.faqs.map((faq: { q: string; a: string }) => (
+              <div key={faq.q} className="bg-background p-6">
+                <h3 className="text-lg font-medium text-foreground">{faq.q}</h3>
+                <p className="mt-3 leading-relaxed text-muted-foreground">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <div className="mt-16 border-t border-border pt-10">
         <h2 className="label-mono mb-6 text-[11px] text-accent">Continue reading</h2>

@@ -60,13 +60,13 @@ function ZodiacPage() {
       <Breadcrumbs items={CRUMBS} />
 
       <PageHeader
-        eyebrow="Chinese Zodiac · Shēngxiào"
+        eyebrow="Chinese Zodiac / Shengxiao"
         title={
           <>
             Discover your <span className="text-primary">zodiac animal</span>
           </>
         }
-        description="Your birth year reveals one of the twelve animals — the face you show the world and a map of your natural temperament."
+        description="Your birth year reveals one of the twelve animals: the face you show the world and a map of your natural temperament."
       />
 
       <div className="mx-auto mt-12 flex max-w-xl flex-col gap-4 sm:flex-row">
@@ -86,13 +86,9 @@ function ZodiacPage() {
               Born {formatLongDate(reading.date)}
             </span>
 
-            <span className="label-mono text-[10px] text-accent">
-              Born {formatLongDate(reading.date)}
-            </span>
-
             <img
               src={reading.zodiac.image}
-              alt={reading.zodiac.name}
+              alt={`${reading.zodiac.name} Chinese zodiac sign`}
               loading="lazy"
               className="mx-auto mt-6 h-56 w-56 rounded-3xl object-cover border-4 border-yellow-500 shadow-[0_0_40px_rgba(234,179,8,0.4)]"
             />
@@ -100,10 +96,8 @@ function ZodiacPage() {
             <h2 className="display-italic mt-4 text-6xl text-foreground">
              {reading.zodiac.name}
             </h2>
-            
-            <h2 className="display-italic mt-4 text-6xl text-foreground">{reading.zodiac.name}</h2>
             <p className="mt-1 text-lg text-muted-foreground">
-              {reading.zodiac.chinese} · {reading.zodiac.pinyin}
+              {reading.zodiac.chinese} / {reading.zodiac.pinyin}
             </p>
             <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-muted-foreground">
               {reading.zodiac.personality}
@@ -176,7 +170,7 @@ function ZodiacPage() {
           <div className="grid gap-px bg-border sm:grid-cols-3">
             <div className="bg-background p-8">
               <h3 className="label-mono mb-5 text-[11px] text-accent">Lucky Colors</h3>
-              <p className="text-foreground">{reading.zodiac.luckyColors.join(" · ")}</p>
+              <p className="text-foreground">{reading.zodiac.luckyColors.join(" / ")}</p>
             </div>
             <div className="bg-background p-8">
               <h3 className="label-mono mb-5 text-[11px] text-accent">Lucky Numbers</h3>

@@ -6,9 +6,41 @@ export interface BlogPost {
   readingTime: string;
   category: string;
   body: string[];
+  faqs?: { q: string; a: string }[];
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "chinese-zodiac-by-date-of-birth",
+    title: "Chinese Zodiac by Date of Birth: Find Your True Animal Sign",
+    excerpt:
+      "Your Chinese zodiac sign depends on your full birth date, not just the calendar year. Learn why Lunar New Year matters and how to find your true animal sign.",
+    date: "2026-07-06",
+    readingTime: "6 min read",
+    category: "Zodiac",
+    body: [
+      "Many people search for their Chinese zodiac by date of birth because the answer is not always as simple as matching a Western calendar year to an animal. The Chinese zodiac follows the lunar calendar, so the zodiac year usually begins in late January or February rather than on January 1.",
+      "That detail matters most for people born in January or early February. For example, someone born before Lunar New Year may belong to the previous zodiac animal, even if their Western birth year looks like a different sign. A date-based calculator is the safest way to avoid this common mistake.",
+      "The twelve animals repeat in a steady cycle: Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog and Pig. Each animal carries a personality pattern, relationship style, natural strengths and possible blind spots.",
+      "Once you know your animal sign, the reading becomes more useful when you add the Five Elements. Wood, Fire, Earth, Metal and Water modify the animal energy, which is why two people born in different Dragon years can feel very different in temperament.",
+      "To find your true sign, enter your full birth date into the Chinese Zodiac Calculator. It handles the lunar year boundary for you, then gives you your animal sign, personality traits, best matches, lucky colors, lucky numbers and career guidance.",
+      "If you want a deeper reading, continue with the Five Elements Calculator after finding your animal. Together, your zodiac animal and element create a fuller picture of your character, timing, relationships and daily fortune.",
+    ],
+    faqs: [
+      {
+        q: "Can I find my Chinese zodiac by date of birth?",
+        a: "Yes. A full date of birth is the best way to find your true Chinese zodiac sign because the zodiac year begins at Lunar New Year, not always on January 1.",
+      },
+      {
+        q: "Why can January and February birthdays have a different Chinese zodiac sign?",
+        a: "Chinese zodiac years follow the lunar calendar. If you were born before Lunar New Year, your animal sign may belong to the previous zodiac year.",
+      },
+      {
+        q: "Is the Chinese zodiac based only on birth year?",
+        a: "The animal sign is mainly based on the zodiac year, but your full birth date helps confirm the correct year. Five Elements analysis adds another layer to the reading.",
+      },
+    ],
+  },
   {
     slug: "understanding-the-five-elements",
     title: "Understanding the Five Elements: A Beginner's Map of Wu Xing",

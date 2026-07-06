@@ -15,6 +15,12 @@ import {
 
 import { DateField } from "@/components/DateField";
 import {
+  canonicalLink,
+  pageMeta,
+  webPageJsonLd,
+  breadcrumbJsonLd,
+} from "@/lib/seo";
+import {
   getReading,
   getCompatibility,
   getDailyFortune,
@@ -29,22 +35,22 @@ import mountainsCta from "@/assets/mountains-cta.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "Chinese Zodiac Calculator & Five Elements Analysis | SiShen" },
-      {
-        name: "description",
-        content:
-          "Discover your Chinese Zodiac sign, Five Elements profile, compatibility matches, and daily fortune insights.",
-      },
-      { property: "og:title", content: "Chinese Zodiac Calculator & Five Elements Analysis | SiShen" },
-      {
-        property: "og:description",
-        content:
-          "Discover your Chinese Zodiac sign, Five Elements profile, compatibility matches, and daily fortune insights.",
-      },
-      { property: "og:url", content: "/" },
+    meta: pageMeta({
+      title: "Chinese Zodiac Calculator & Five Elements Analysis | SiShen",
+      description:
+        "Use free Chinese Zodiac, Five Elements, compatibility and daily fortune calculators to reveal your animal sign, Wu Xing element, lucky colors, numbers and relationship insights.",
+      path: "/",
+    }),
+    links: canonicalLink("/"),
+    scripts: [
+      webPageJsonLd({
+        name: "Chinese Zodiac Calculator & Five Elements Analysis | SiShen",
+        description:
+          "Free Chinese Zodiac, Five Elements, compatibility and daily fortune calculators for animal signs, Wu Xing elements, lucky colors, numbers and relationship insights.",
+        path: "/",
+      }),
+      breadcrumbJsonLd([{ name: "Home", path: "/" }]),
     ],
-    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Index,
 });

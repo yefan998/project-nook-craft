@@ -14,6 +14,11 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
 import { CosmicDecor } from "../components/CosmicDecor";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "../lib/seo";
+
+const DEFAULT_TITLE = "Chinese Zodiac Calculator & Five Elements Analysis | SiShen";
+const DEFAULT_DESCRIPTION =
+  "Use free Chinese Zodiac, Five Elements, compatibility and daily fortune calculators to reveal your animal sign, Wu Xing element, lucky colors, numbers and relationship insights.";
 
 function NotFoundComponent() {
   return (
@@ -78,27 +83,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Chinese Zodiac Calculator & Five Elements Analysis | SiShen" },
+      { title: DEFAULT_TITLE },
       {
         name: "description",
-        content:
-          "Discover your Chinese Zodiac sign, Five Elements profile, compatibility matches, and daily fortune insights.",
+        content: DEFAULT_DESCRIPTION,
       },
-      { name: "author", content: "SiShen" },
-      { property: "og:title", content: "Chinese Zodiac Calculator & Five Elements Analysis | SiShen" },
+      { name: "author", content: SITE_NAME },
+      { property: "og:title", content: DEFAULT_TITLE },
       {
         property: "og:description",
-        content:
-          "Discover your Chinese Zodiac sign, Five Elements profile, compatibility matches, and daily fortune insights.",
+        content: DEFAULT_DESCRIPTION,
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "SiShen" },
+      { property: "og:site_name", content: SITE_NAME },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Sishen" },
-      { name: "twitter:title", content: "Chinese Zodiac Calculator & Five Elements Analysis | SiShen" },
-      { name: "twitter:description", content: "Discover your Chinese Zodiac sign, Five Elements profile, compatibility matches, and daily fortune insights." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/385ef51c-b75b-45a9-878d-172b531688f9/id-preview-aad9d7e6--e62b36e6-e62a-4aff-b74b-0055a7e4efbc.lovable.app-1780437270955.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/385ef51c-b75b-45a9-878d-172b531688f9/id-preview-aad9d7e6--e62b36e6-e62a-4aff-b74b-0055a7e4efbc.lovable.app-1780437270955.png" },
+      { name: "twitter:title", content: DEFAULT_TITLE },
+      { name: "twitter:description", content: DEFAULT_DESCRIPTION },
+      { property: "og:image", content: DEFAULT_OG_IMAGE },
+      { name: "twitter:image", content: DEFAULT_OG_IMAGE },
       { name: "google-site-verification", content: "XjiFv8XTXUVtkkdW_YfyyF_L1bW6uap7gamN4iv1alo" },
     ],
     links: [
@@ -116,11 +119,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "SiShen — Chinese Zodiac & Five Elements",
-          url: "https://project-nook-craft.lovable.app",
+          name: `${SITE_NAME} - Chinese Zodiac & Five Elements`,
+          url: SITE_URL,
           inLanguage: "en",
-          description:
-            "Chinese Zodiac calculator, Five Elements (Wu Xing) analysis, compatibility matching and daily fortune insights.",
+          description: DEFAULT_DESCRIPTION,
         }),
       },
     ],
