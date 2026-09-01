@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BLOG_POSTS } from "@/lib/blog";
-import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+import { routeHead } from "@/lib/seo-pages";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -11,16 +11,7 @@ const CRUMBS = [
 ];
 
 export const Route = createFileRoute("/blog")({
-  head: () => ({
-    meta: pageMeta({
-      title: "Blog — Chinese Metaphysics & Destiny | SiShen",
-      description:
-        "Guides and reflections on Chinese metaphysics: the Five Elements, the zodiac, lucky colors and numbers, compatibility and how to align daily life with your nature.",
-      path: "/blog",
-    }),
-    links: canonicalLink("/blog"),
-    scripts: [breadcrumbJsonLd(CRUMBS)],
-  }),
+  head: () => routeHead("/blog"),
   component: BlogPage,
 });
 

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { PageHeader } from "@/components/PageHeader";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+import { routeHead } from "@/lib/seo-pages";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -37,16 +37,7 @@ const SECTIONS = [
 ];
 
 export const Route = createFileRoute("/privacy")({
-  head: () => ({
-    meta: pageMeta({
-      title: "Privacy Policy | SiShen",
-      description:
-        "How SiShen protects your privacy. All destiny calculations run in your browser — your birth date is never stored or transmitted.",
-      path: "/privacy",
-    }),
-    links: canonicalLink("/privacy"),
-    scripts: [breadcrumbJsonLd(CRUMBS)],
-  }),
+  head: () => routeHead("/privacy"),
   component: PrivacyPage,
 });
 

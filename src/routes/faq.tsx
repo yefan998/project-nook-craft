@@ -2,7 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { PageHeader } from "@/components/PageHeader";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { pageMeta, canonicalLink, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
+import { routeHead } from "@/lib/seo-pages";
+import { faqJsonLd } from "@/lib/seo";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -37,16 +38,10 @@ const FAQS = [
 ];
 
 export const Route = createFileRoute("/faq")({
-  head: () => ({
-    meta: pageMeta({
-      title: "Frequently Asked Questions | SiShen",
-      description:
-        "Answers to common questions about the Chinese zodiac, the Five Elements, compatibility, privacy and how SiShen's destiny tools work.",
-      path: "/faq",
-    }),
-    links: canonicalLink("/faq"),
-    scripts: [breadcrumbJsonLd(CRUMBS), faqJsonLd(FAQS)],
-  }),
+  head: () => {
+    const base = routeHead("/faq");
+    return { ...base, scripts: [...base.scripts, faqJsonLd(FAQS)] };
+  },
   component: FaqPage,
 });
 

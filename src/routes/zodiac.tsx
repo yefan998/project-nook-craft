@@ -7,7 +7,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedContent } from "@/components/RelatedContent";
 import { getReading, parseDateInput, formatLongDate, ZODIACS } from "@/lib/destiny";
-import { pageMeta, canonicalLink, breadcrumbJsonLd, webPageJsonLd } from "@/lib/seo";
+import { routeHead } from "@/lib/seo-pages";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -15,35 +15,7 @@ const CRUMBS = [
 ];
 
 export const Route = createFileRoute("/zodiac")({
-  head: () => ({
-    meta: pageMeta({
-      title: "Chinese Zodiac Calculator | SiShen",
-      description:
-        "Find your Chinese zodiac animal from your birth date and read your personality analysis, strengths, weaknesses, best matches, career insights and lucky colors, numbers and directions.",
-      path: "/zodiac",
-    }),
-    links: canonicalLink("/zodiac"),
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebApplication",
-          name: "Chinese Zodiac Calculator",
-          applicationCategory: "LifestyleApplication",
-          operatingSystem: "Web",
-          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-        }),
-      },
-      webPageJsonLd({
-        name: "Chinese Zodiac Calculator | SiShen",
-        description:
-          "Find your Chinese zodiac animal from your birth date with personality analysis, strengths, weaknesses, best matches and lucky attributes.",
-        path: "/zodiac",
-      }),
-      breadcrumbJsonLd(CRUMBS),
-    ],
-  }),
+  head: () => routeHead("/zodiac"),
   component: ZodiacPage,
 });
 

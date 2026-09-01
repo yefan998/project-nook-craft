@@ -14,7 +14,7 @@ import {
   ELEMENTS,
 } from "@/lib/destiny";
 import { ELEMENT_IMAGES, ELEMENT_TEXT_CLASS, ELEMENT_BORDER_CLASS } from "@/lib/element-images";
-import { pageMeta, canonicalLink, breadcrumbJsonLd, webPageJsonLd } from "@/lib/seo";
+import { routeHead } from "@/lib/seo-pages";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -22,35 +22,7 @@ const CRUMBS = [
 ];
 
 export const Route = createFileRoute("/five-elements")({
-  head: () => ({
-    meta: pageMeta({
-      title: "Five Elements Calculator (Wu Xing) | SiShen",
-      description:
-        "Calculate your Chinese Five Elements (Wu Xing) profile from your birth date — element type, personality analysis, strengths, weaknesses, career suggestions, relationship insights and lucky colors, numbers and directions.",
-      path: "/five-elements",
-    }),
-    links: canonicalLink("/five-elements"),
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebApplication",
-          name: "Five Elements Calculator",
-          applicationCategory: "LifestyleApplication",
-          operatingSystem: "Web",
-          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-        }),
-      },
-      webPageJsonLd({
-        name: "Five Elements Calculator (Wu Xing) | SiShen",
-        description:
-          "Calculate your Chinese Five Elements (Wu Xing) profile from your birth date — element type, personality, strengths, weaknesses, career and lucky attributes.",
-        path: "/five-elements",
-      }),
-      breadcrumbJsonLd(CRUMBS),
-    ],
-  }),
+  head: () => routeHead("/five-elements"),
   component: FiveElementsPage,
 });
 

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { PageHeader } from "@/components/PageHeader";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+import { routeHead } from "@/lib/seo-pages";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -10,16 +10,7 @@ const CRUMBS = [
 ];
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: pageMeta({
-      title: "Contact Us | SiShen",
-      description:
-        "Get in touch with the SiShen team. Questions, feedback or suggestions about our Chinese zodiac and Five Elements tools — we'd love to hear from you.",
-      path: "/contact",
-    }),
-    links: canonicalLink("/contact"),
-    scripts: [breadcrumbJsonLd(CRUMBS)],
-  }),
+  head: () => routeHead("/contact"),
   component: ContactPage,
 });
 
