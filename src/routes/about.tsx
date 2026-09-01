@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { PageHeader } from "@/components/PageHeader";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+import { routeHead } from "@/lib/seo-pages";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -10,16 +10,7 @@ const CRUMBS = [
 ];
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: pageMeta({
-      title: "About — Ancient Wisdom, Modern Clarity | SiShen",
-      description:
-        "SiShen translates traditional Chinese metaphysics — the Five Elements and the zodiac — into clear, modern destiny analysis for self-understanding.",
-      path: "/about",
-    }),
-    links: canonicalLink("/about"),
-    scripts: [breadcrumbJsonLd(CRUMBS)],
-  }),
+  head: () => routeHead("/about"),
   component: AboutPage,
 });
 

@@ -7,7 +7,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedContent } from "@/components/RelatedContent";
 import { getCompatibility, parseDateInput } from "@/lib/destiny";
-import { pageMeta, canonicalLink, breadcrumbJsonLd, webPageJsonLd } from "@/lib/seo";
+import { routeHead } from "@/lib/seo-pages";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -15,35 +15,7 @@ const CRUMBS = [
 ];
 
 export const Route = createFileRoute("/compatibility")({
-  head: () => ({
-    meta: pageMeta({
-      title: "Love Compatibility Calculator | SiShen",
-      description:
-        "Compare two birth dates to reveal your Chinese zodiac and Five Elements compatibility score, relationship summary, strengths and personalized advice.",
-      path: "/compatibility",
-    }),
-    links: canonicalLink("/compatibility"),
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebApplication",
-          name: "Love Compatibility Calculator",
-          applicationCategory: "LifestyleApplication",
-          operatingSystem: "Web",
-          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-        }),
-      },
-      webPageJsonLd({
-        name: "Love Compatibility Calculator | SiShen",
-        description:
-          "Compare two birth dates to reveal your Chinese zodiac and Five Elements compatibility score, relationship summary and personalized advice.",
-        path: "/compatibility",
-      }),
-      breadcrumbJsonLd(CRUMBS),
-    ],
-  }),
+  head: () => routeHead("/compatibility"),
   component: CompatibilityPage,
 });
 

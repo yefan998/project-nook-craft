@@ -15,12 +15,6 @@ import {
 
 import { DateField } from "@/components/DateField";
 import {
-  canonicalLink,
-  pageMeta,
-  webPageJsonLd,
-  breadcrumbJsonLd,
-} from "@/lib/seo";
-import {
   getReading,
   getCompatibility,
   getDailyFortune,
@@ -32,26 +26,10 @@ import {
 } from "@/lib/destiny";
 import { ELEMENT_IMAGES } from "@/lib/element-images";
 import mountainsCta from "@/assets/mountains-cta.jpg";
+import { routeHead } from "@/lib/seo-pages";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: pageMeta({
-      title: "Chinese Zodiac & Five Elements Calculator | Free Wu Xing Analysis",
-      description:
-        "Discover your Chinese Zodiac sign and Five Elements (Wu Xing) with free calculators. Explore zodiac compatibility, personality traits, lucky colors, lucky numbers, and daily fortune readings.",
-      path: "/",
-    }),
-    links: canonicalLink("/"),
-    scripts: [
-      webPageJsonLd({
-        name: "Chinese Zodiac & Five Elements Calculator | Free Wu Xing Analysis",
-        description:
-          "Discover your Chinese Zodiac sign and Five Elements (Wu Xing) with free calculators. Explore zodiac compatibility, personality traits, lucky colors, lucky numbers, and daily fortune readings.",
-        path: "/",
-      }),
-      breadcrumbJsonLd([{ name: "Home", path: "/" }]),
-    ],
-  }),
+  head: () => routeHead("/"),
   component: Index,
 });
 

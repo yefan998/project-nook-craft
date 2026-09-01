@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedContent } from "@/components/RelatedContent";
 import { ScoreMeter } from "@/components/ScoreMeter";
 import { getDailyFortune, getReading, parseDateInput, formatLongDate } from "@/lib/destiny";
-import { pageMeta, canonicalLink, breadcrumbJsonLd, webPageJsonLd } from "@/lib/seo";
+import { routeHead } from "@/lib/seo-pages";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -15,35 +15,7 @@ const CRUMBS = [
 ];
 
 export const Route = createFileRoute("/daily-fortune")({
-  head: () => ({
-    meta: pageMeta({
-      title: "Daily Fortune Reading | SiShen",
-      description:
-        "Your daily Chinese fortune for love, career, wealth and health — a personalized forecast based on your birth date and today's energy, with lucky colors, numbers and directions.",
-      path: "/daily-fortune",
-    }),
-    links: canonicalLink("/daily-fortune"),
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebApplication",
-          name: "Daily Fortune Reading",
-          applicationCategory: "LifestyleApplication",
-          operatingSystem: "Web",
-          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-        }),
-      },
-      webPageJsonLd({
-        name: "Daily Fortune Reading | SiShen",
-        description:
-          "Your daily Chinese fortune for love, career, wealth and health — a personalized forecast with lucky colors, numbers and directions.",
-        path: "/daily-fortune",
-      }),
-      breadcrumbJsonLd(CRUMBS),
-    ],
-  }),
+  head: () => routeHead("/daily-fortune"),
   component: DailyFortunePage,
 });
 

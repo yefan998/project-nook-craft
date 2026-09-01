@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { PageHeader } from "@/components/PageHeader";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { pageMeta, canonicalLink, breadcrumbJsonLd } from "@/lib/seo";
+import { routeHead } from "@/lib/seo-pages";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -41,16 +41,7 @@ const SECTIONS = [
 ];
 
 export const Route = createFileRoute("/terms")({
-  head: () => ({
-    meta: pageMeta({
-      title: "Terms of Service | SiShen",
-      description:
-        "The terms governing your use of SiShen's Chinese zodiac and Five Elements tools. Readings are offered for reflection and entertainment.",
-      path: "/terms",
-    }),
-    links: canonicalLink("/terms"),
-    scripts: [breadcrumbJsonLd(CRUMBS)],
-  }),
+  head: () => routeHead("/terms"),
   component: TermsPage,
 });
 
