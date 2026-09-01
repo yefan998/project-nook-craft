@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { routeHead } from "@/lib/seo-pages";
+import { faqJsonLd } from "@/lib/seo";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
@@ -37,7 +38,10 @@ const FAQS = [
 ];
 
 export const Route = createFileRoute("/faq")({
-  head: () => routeHead("/faq"),
+  head: () => {
+    const base = routeHead("/faq");
+    return { ...base, scripts: [...base.scripts, faqJsonLd(FAQS)] };
+  },
   component: FaqPage,
 });
 
