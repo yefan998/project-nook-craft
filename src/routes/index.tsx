@@ -36,17 +36,17 @@ import mountainsCta from "@/assets/mountains-cta.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: pageMeta({
-      title: "Chinese Zodiac Calculator & Five Elements Analysis | SiShen",
+      title: "Chinese Zodiac & Five Elements Calculator | Free Wu Xing Analysis",
       description:
-        "Use free Chinese Zodiac, Five Elements, compatibility and daily fortune calculators to reveal your animal sign, Wu Xing element, lucky colors, numbers and relationship insights.",
+        "Discover your Chinese Zodiac sign and Five Elements (Wu Xing) with free calculators. Explore zodiac compatibility, personality traits, lucky colors, lucky numbers, and daily fortune readings.",
       path: "/",
     }),
     links: canonicalLink("/"),
     scripts: [
       webPageJsonLd({
-        name: "Chinese Zodiac Calculator & Five Elements Analysis | SiShen",
+        name: "Chinese Zodiac & Five Elements Calculator | Free Wu Xing Analysis",
         description:
-          "Free Chinese Zodiac, Five Elements, compatibility and daily fortune calculators for animal signs, Wu Xing elements, lucky colors, numbers and relationship insights.",
+          "Discover your Chinese Zodiac sign and Five Elements (Wu Xing) with free calculators. Explore zodiac compatibility, personality traits, lucky colors, lucky numbers, and daily fortune readings.",
         path: "/",
       }),
       breadcrumbJsonLd([{ name: "Home", path: "/" }]),
@@ -187,24 +187,26 @@ function Hero() {
           Ancient Wisdom · Modern Clarity
         </motion.span>
 
-        <motion.h1
+<motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           className="display-italic mt-6 text-balance text-5xl leading-[1.02] text-foreground sm:text-6xl md:text-7xl"
         >
-          Discover Your Chinese Zodiac &{" "}
-          <span className="text-primary">Five Elements</span> Destiny
+          Chinese Zodiac & <span className="text-primary">Five Elements</span>{" "}
+          Calculator
         </motion.h1>
 
-        <motion.p
+<motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25 }}
           className="mx-auto mt-7 max-w-[52ch] text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
         >
-          Explore Chinese Zodiac readings, Five Elements analysis,
-          compatibility matching, and daily fortune guidance.
+          Discover your animal sign and Wu Xing element with our free Chinese
+          Zodiac and Five Elements calculators. Then explore lucky colors,
+          lucky numbers, zodiac compatibility, and daily fortune readings
+          rooted in Chinese Astrology.
         </motion.p>
 
         <motion.div
@@ -444,10 +446,10 @@ function CompatibilitySection() {
   return (
     <section className="relative border-t border-border bg-white/[0.01] py-24">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionHeading
+<SectionHeading
           eyebrow="Love & Harmony"
           title="Compatibility Reading"
-          subtitle="Enter two birth dates to reveal your relationship harmony."
+          subtitle="Enter two birth dates to reveal your Chinese Zodiac compatibility and relationship harmony."
         />
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[360px_1fr]">
